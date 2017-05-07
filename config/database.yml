@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: eduquizzer_development
+  password: development12
+test:
+  <<: *default
+  database: eduquizzer_test
+  password: test12
+
+production:
+  <<: *default
+  database: <%= ENV['EDUQUIZZER_DATABASE'] %>
+  username: <%= ENV['EDUQUIZZER_DATABASE_USER'] %>
+  password: <%= ENV['EDUQUIZZER_DATABASE_PASSWORD'] %>
