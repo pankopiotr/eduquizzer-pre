@@ -15,7 +15,7 @@
 /test/version_tmp/
 
 ## Ignore logs
-/log/
+/log/*.log
 
 ## Ignore all assets
 public/assets/
