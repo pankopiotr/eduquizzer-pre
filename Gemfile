@@ -6,7 +6,7 @@ gem 'rails'
 # General usage
 gem 'bcrypt'
 gem 'carrierwave'
-gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp' # FTP only
+gem 'carrierwave-ftp', require: 'carrierwave/storage/ftp' # FTP only
 gem 'jbuilder'
 gem 'turbolinks'
 
@@ -54,4 +54,4 @@ end
 
 # Timezone Data (Windows does not include timezone info files)
 # noinspection RailsParamDefResolve
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
