@@ -5,11 +5,15 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: eduquizzer_development
+  username: eduquizzer_development
   password: development12
 test:
   <<: *default
+  host: localhost
   database: eduquizzer_test
+  username: eduquizzer_test
   password: test12
 
 production:
