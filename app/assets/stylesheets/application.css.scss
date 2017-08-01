@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+/* General */
+
+body {
+    padding-top: 60px;
+}
+
+.group-outline {
+  outline: 1px solid black;
+  outline-offset: 5px 15px;
+}
+
+.btn-toolbar {
+  display: block;
+  margin: 25px auto 0;
+}
+/* Footer */
+
+footer {
+  margin-top: 30px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+    a {
+      color: #555;
+    }
+    &hover {
+      color: #222;
+    }
+    small {
+      float: left;
+    }
+}

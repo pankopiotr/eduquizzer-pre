@@ -1,0 +1,18 @@
+.center
+  = form_for @user, url: register_path do
+    = render 'shared/error_messages'
+    .row.text-center
+      .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+        .jumbotron
+          = label_tag t(:par_email)
+          %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_email)} info_outline
+          = text_field_tag 'email', '', class: 'form-control'
+
+          = label_tag t(:par_password)
+          %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_password)} info_outline
+          = text_field_tag 'password', '', class: 'form-control'
+
+          = submit_tag t(:btn_register), class: 'btn btn-lg btn-primary btn-toolbar'
+
+          %small= t(:have_account)
+          %small= link_to t(:btn_sign_in), register_path

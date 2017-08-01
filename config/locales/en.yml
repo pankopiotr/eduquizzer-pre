@@ -1,23 +1,25 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  # General
+  you_sure: "Are you sure?"
+  cannot_edit: "You cannot edit this information after you submit it."
+  have_account: "Already have an account?"
+
+  # Parameters
+  par_first_name: "First name"
+  par_last_name: "Last name"
+  par_password: "Password"
+  par_student_id: "Student ID"
+  par_email: "E-mail"
+
+  # Buttons
+  btn_sign_in: "Sign in"
+  btn_skip: "Skip that step"
+  btn_back: "Back"
+  btn_register: "Register"
+
+  # Tooltips
+  tt_rgstr_email: "Must be unique and up to 64 characters long."
+  tt_rgstr_first_name: "Must be between 2 and 16 characters long."
+  tt_rgstr_last_name: "Must be between 2 and 32 characters long."
+  tt_rgstr_password: "Must be between 8 and 64 characters long."
+  tt_rgstr_student_id: "Must be 5 or 6 characters long."

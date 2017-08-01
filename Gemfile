@@ -12,6 +12,7 @@ gem 'turbolinks'
 
 # Asset pipeline
 gem 'coffee-rails'
+gem 'haml'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'uglifier'
