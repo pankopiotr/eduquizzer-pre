@@ -38,6 +38,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    ansi (1.5.0)
     arel (7.1.4)
     autoprefixer-rails (7.1.1)
       execjs
@@ -128,6 +129,11 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
+    minitest-reporters (1.1.14)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     multi_json (1.12.1)
     nenv (0.3.0)
     net-sftp (2.1.2)
@@ -177,6 +183,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -241,6 +248,7 @@ DEPENDENCIES
   jquery-rails
   listen
   meta_request
+  minitest-reporters
   pg
   puma
   rails

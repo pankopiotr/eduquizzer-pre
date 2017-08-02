@@ -51,6 +51,9 @@ group :development do
   # Automated testing
   gem 'guard'
   gem 'guard-minitest'
+
+  # Prettier reporter
+  gem 'minitest-reporters'
 end
 
 # Timezone Data (Windows does not include timezone info files)
