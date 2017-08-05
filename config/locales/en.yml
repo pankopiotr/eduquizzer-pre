@@ -1,8 +1,10 @@
 en:
   # General
-  you_sure: "Are you sure?"
   cannot_edit: "You cannot edit this information after you submit it."
+  forgot_password: "Forgot password?"
+  no_account: "New to EduQuizzer?"
   have_account: "Already have an account?"
+  you_sure: "Are you sure?"
 
   # Parameters
   par_first_name: "First name"
@@ -12,10 +14,13 @@ en:
   par_email: "E-mail"
 
   # Buttons
-  btn_sign_in: "Sign in"
-  btn_skip: "Skip that step"
   btn_back: "Back"
+  btn_recover: "Recover password"
   btn_register: "Register"
+  btn_sign_in: "Sign in"
+  btn_sign_up: "Sign up"
+  btn_skip: "Skip that step"
+
 
   # Tooltips
   tt_rgstr_email: "Must be unique and up to 64 characters long."
