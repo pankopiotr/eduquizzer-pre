@@ -12,3 +12,4 @@
         = content_tag :div, message, class: "alert alert-#{message_type}"
       = yield
       = render 'shared/footer'
+      = console if Rails.env.development?
