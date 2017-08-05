@@ -8,7 +8,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Presence validation
-  test 'user validate user' do
+  test 'should validate user' do
     assert @user.valid?
   end
 
