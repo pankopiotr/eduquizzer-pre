@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save :encrypt_password
   validates :email,      presence: true, length: { maximum: 64 },
                          uniqueness: { case_sensitive: false }, email: true
   validates :password,   presence: true, length: { in: 8..64 }
@@ -6,4 +7,11 @@ class User < ApplicationRecord
   validates :last_name,  length: { in: 2..32 }, allow_blank: true
   validates :student_id, length: { in: 5..6 }, allow_blank: true,
                          numericality: true
+
+  private
+
+  def encrypt_password
+    self.salt = BCrypt::Engine.generate_salt
+    self.password = BCrypt::Engine.hash_secret(password, salt)
+  end
 end
