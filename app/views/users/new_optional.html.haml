@@ -1,3 +1,4 @@
+= provide(:title, t(:register_optional))
 .center
   = form_for :user, url: url_for(controller: 'users', action: 'create_optional') do |f|
     = render 'shared/user_error_messages'

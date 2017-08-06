@@ -6,6 +6,11 @@ en:
   have_account: "Already have an account?"
   you_sure: "Are you sure?"
 
+  # Page titles
+  register: "Register"
+  register_optional: "Register"
+  sign_in: "Sign in"
+
   # Parameters
   par_first_name: "First name"
   par_last_name: "Last name"
