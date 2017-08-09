@@ -71,3 +71,4 @@ build-iPhoneSimulator/
 
 ## Ignore guard config
 /Guardfile
+/.rubocop.yml
