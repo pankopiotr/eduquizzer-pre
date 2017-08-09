@@ -24,6 +24,7 @@ en:
 
   # Buttons
   btn_back: "Back"
+  btn_finish_registration: "Finish registration"
   btn_recover: "Recover password"
   btn_register: "Register"
   btn_sign_in: "Sign in"
