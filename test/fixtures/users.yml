@@ -1,0 +1,21 @@
+john:
+  email: johndoe@example.com
+  password: test1234
+  first_name: John
+  last_name: Doe
+  student_id: 123456
+  active: true
+  admin: true
+
+jane:
+  email: jane.doe@domain.com
+  password: kappa123
+  first_name: Jane
+  last_name: Doe
+  student_id: 11111
+  active: true
+
+bob:
+  email: bob.bob@domain.com
+  password: password12
+  active: false

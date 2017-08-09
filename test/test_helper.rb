@@ -5,8 +5,22 @@ require 'minitest/reporters'
 Minitest::Reporters.use! Minitest::Reporters::RubyMineReporter.new
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  def sign_in_as(user)
+    post '/signin', params: { session: { email: user.email,
+                                         password: user.password } }
+  end
+
+  def sign_out
+    delete '/signout'
+  end
+
+  def in_session?
+    !session[:user_id].nil?
+  end
+
+  def current_url
+    request.original_url
+  end
 end
