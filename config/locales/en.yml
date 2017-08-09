@@ -6,6 +6,10 @@ en:
   have_account: "Already have an account?"
   you_sure: "Are you sure?"
 
+  # Alerts, errors and notices
+  already_signed_in: "You are already signed in. Sign out or delete cookies first."
+  wrong_credentials: "Wrong password or email."
+
   # Page titles
   register: "Register"
   register_optional: "Register"
