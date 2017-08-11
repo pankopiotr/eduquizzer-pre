@@ -8,6 +8,9 @@ en:
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first."
+  completed_optional_once: "You already have completed optional registration. If you need to change your credentials, contact administrator."
+  finish_your_registration: "Finish your registration first."
+  unauthorized: "Unauthorized access"
   wrong_credentials: "Wrong password or email."
 
   # Page titles

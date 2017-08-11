@@ -9,6 +9,17 @@ module UsersHelper
       params.require(:user).permit(:first_name, :last_name, :student_id)
     end
 
+    def nil_optional_attributes?
+      unless find_user_by_session.student_id.nil?
+        flash[:danger] = t(:completed_optional_once)
+        redirect_to root_path
+      end
+    end
+
+    def find_user_by_session
+      User.find_by(id: session[:user_id])
+    end
+
     def generate_token
       SecureRandom.urlsafe_base64
     end
