@@ -15,7 +15,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'should sign in user with valid information' do
     get signin_path
     sign_in_as(@user)
-    assert flash[:error].nil?
+    assert flash[:danger].nil?
     assert in_session?
     assert_response :redirect
   end
@@ -26,7 +26,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     @url = current_url
     sign_in_as(@user)
     refute in_session?
-    refute flash[:error].nil?
+    refute flash[:danger].nil?
     assert_equal current_url, @url
   end
 
@@ -36,7 +36,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     @url = current_url
     sign_in_as(@user)
     refute in_session?
-    refute flash[:error].nil?
+    refute flash[:danger].nil?
     assert_equal current_url, @url
   end
 
@@ -46,7 +46,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     sign_in_as(@user)
     assert in_session?
     sign_in_as(@other_user)
-    refute flash[:error].nil?
+    refute flash[:danger].nil?
     assert_equal current_url, @url
   end
 
@@ -55,7 +55,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     @url = current_url
     sign_in_as(@inactive_user)
     refute in_session?
-    refute flash[:error].nil?
+    refute flash[:danger].nil?
     assert_equal current_url, @url
   end
 

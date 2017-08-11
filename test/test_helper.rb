@@ -13,7 +13,7 @@ class ActiveSupport::TestCase
   end
 
   def sign_out
-    delete '/signout'
+    get '/signout'
   end
 
   def in_session?
