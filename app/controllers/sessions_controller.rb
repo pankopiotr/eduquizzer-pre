@@ -5,15 +5,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email])
+    if @user = User.find_by(email: params[:session][:email])
+      @password = BCrypt::Password.new(@user.password)
+    end
     if session[:user_id].nil?
-      if user&.active && user.password == params[:session][:password]
-        sign_in user
-        remember user
+      if @user&.active && @password == params[:session][:password]
+        sign_in @user
+        remember @user
         # Change to user path when user interface is done
         redirect_to root_path
       else
-        flash[:danger] = t(:wrong_credentials)
+        flash.now[:danger] = t(:wrong_credentials)
         render 'new'
       end
     else
