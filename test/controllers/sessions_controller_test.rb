@@ -32,9 +32,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not sign user with invalid password' do
     get signin_path
-    @user.password = ''
     @url = current_url
-    sign_in_as(@user)
+    post '/signin', params: { session: { email: @user.email,
+                                         password: '' } }
     refute in_session?
     refute flash[:danger].nil?
     assert_equal current_url, @url

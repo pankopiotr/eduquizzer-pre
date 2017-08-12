@@ -9,7 +9,7 @@ class ActiveSupport::TestCase
 
   def sign_in_as(user)
     post '/signin', params: { session: { email: user.email,
-                                         password: user.password } }
+                                         password: 'password' } }
   end
 
   def sign_out
