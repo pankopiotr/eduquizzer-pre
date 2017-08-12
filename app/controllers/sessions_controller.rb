@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user = User.find_by(email: params[:session][:email])
-      @password = BCrypt::Password.new(@user.password)
+    if (@user = User.find_by(email: params[:session][:email]))
+      @password = BCrypt::Password.new(@user.password_digest)
     end
     if session[:user_id].nil?
       if @user&.active && @password == params[:session][:password]

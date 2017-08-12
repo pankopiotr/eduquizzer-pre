@@ -1,6 +1,6 @@
 john:
   email: johndoe@example.com
-  password: <%= BCrypt::Password.create('password') %>
+  password_digest: <%= BCrypt::Password.create('password') %>
   first_name: John
   last_name: Doe
   student_id: 123456
@@ -9,7 +9,7 @@ john:
 
 jane:
   email: jane.doe@domain.com
-  password: <%= BCrypt::Password.create('password') %>
+  password_digest: <%= BCrypt::Password.create('password') %>
   first_name: Jane
   last_name: Doe
   student_id: 11111
@@ -17,5 +17,5 @@ jane:
 
 bob:
   email: bob.bob@domain.com
-  password: <%= BCrypt::Password.create('password') %>
+  password_digest: <%= BCrypt::Password.create('password') %>
   active: false
