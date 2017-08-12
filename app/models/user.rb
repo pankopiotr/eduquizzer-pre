@@ -2,7 +2,7 @@ class User < ApplicationRecord
   include UsersHelper
 
   before_save :encrypt_password
-  attr_accessor :remember_token, :updating_password
+  attr_accessor :remember_token, :updating_password, :password
   validates :email,      presence: true, length: { maximum: 64 },
                          uniqueness: { case_sensitive: false }, email: true
   validates :password,   presence: true, length: { in: 8..64 },
