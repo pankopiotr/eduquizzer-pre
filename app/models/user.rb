@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include UsersHelper
 
-  before_save :encrypt_password
+  before_create :encrypt_password
   attr_accessor :remember_token
   validates :email,      presence: true, length: { maximum: 64 },
                          uniqueness: { case_sensitive: false }, email: true
@@ -22,8 +22,7 @@ class User < ApplicationRecord
 
   private
 
-  def encrypt_password
-    self.salt = BCrypt::Engine.generate_salt
-    self.password = BCrypt::Engine.hash_secret(password, salt)
-  end
+    def encrypt_password
+      self.password = BCrypt::Password.create(password)
+    end
 end
