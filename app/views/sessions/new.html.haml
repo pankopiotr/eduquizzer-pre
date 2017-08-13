@@ -4,6 +4,8 @@
     .row.text-center
       .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-8.col-sm-offset-2.col-xs-12
         .jumbotron
+          %h2= t(:sign_in)
+
           = f.label t(:par_email)
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_email)} info_outline
           = f.text_field 'email', class: 'form-control'

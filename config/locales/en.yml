@@ -15,7 +15,7 @@ en:
 
   # Page titles
   register: "Register"
-  register_optional: "Register"
+  additional_info: "Additional info"
   sign_in: "Sign in"
 
   # Parameters
