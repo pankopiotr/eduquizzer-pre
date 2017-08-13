@@ -27,13 +27,17 @@ en:
 
   # Buttons
   btn_back: "Back"
-  btn_finish_registration: "Finish registration"
-  btn_recover: "Recover password"
+  btn_enter_quiz: "Enter Quiz"
+  btn_finish_registration: "Finish Registration"
+  btn_recover: "Recover Password"
   btn_register: "Register"
-  btn_sign_in: "Sign in"
-  btn_sign_up: "Sign up"
+  btn_sign_in: "Sign In"
+  btn_sign_out: "Sign Out"
+  btn_sign_up: "Sign Up"
   btn_skip: "Skip that step"
-
+  btn_test_menu: "Test Menu"
+  btn_user_list: "User List"
+  btn_score_list: "Score List"
 
   # Tooltips
   tt_rgstr_email: "Must be unique and up to 64 characters long."

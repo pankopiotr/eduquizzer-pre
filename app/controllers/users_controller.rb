@@ -32,4 +32,7 @@ class UsersController < ApplicationController
       render 'new_optional'
     end
   end
+
+  def show
+  end
 end
