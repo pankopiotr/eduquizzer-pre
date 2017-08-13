@@ -12,7 +12,7 @@ module UsersHelper
     def nil_optional_attributes?
       unless find_user_by_session.student_id.nil?
         flash[:danger] = t(:completed_optional_once)
-        redirect_to root_path
+        redirect_to interface_path
       end
     end
 
