@@ -12,16 +12,14 @@ class SessionsController < ApplicationController
       if @user&.active && @password == params[:session][:password]
         sign_in @user
         remember @user
-        # Change to user path when user interface is done
-        redirect_to root_path
+        redirect_to interface_path
       else
         flash.now[:danger] = t(:wrong_credentials)
         render 'new'
       end
     else
       flash[:danger] = t(:already_signed_in)
-      # Change to user path when user interface is done
-      redirect_to root_path
+      redirect_to interface_path
     end
   end
 

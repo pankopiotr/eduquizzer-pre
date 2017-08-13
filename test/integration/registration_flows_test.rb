@@ -13,8 +13,7 @@ class RegistrationFlowsTest < ActionDispatch::IntegrationTest
     post '/register_optional', params: { user: { first_name: 'John',
                                                  last_name: 'Newman',
                                                  student_id: '123123' } }
-    # Change to user path when user interface is done
-    assert_redirected_to root_path
+    assert_redirected_to interface_path
   end
 
   test 'log out after registration and log in again to finish registration' do
@@ -36,7 +35,6 @@ class RegistrationFlowsTest < ActionDispatch::IntegrationTest
                                                  last_name: 'Newman',
                                                  student_id: '123123' } }
     assert_not_nil User.find_by(student_id: '123123')
-    # Change to user path when user interface is done
-    assert_redirected_to root_path
+    assert_redirected_to interface_path
   end
 end

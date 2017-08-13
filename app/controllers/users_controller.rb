@@ -26,8 +26,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     if @user.update_attributes(user_optional_params)
       @user.update_attributes(active: true)
-      # Change to user path when user interface is done
-      redirect_to root_path
+      redirect_to interface_path
     else
       render 'new_optional'
     end
