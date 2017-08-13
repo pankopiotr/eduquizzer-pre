@@ -19,6 +19,6 @@
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_student_id)} info_outline
           = f.text_field 'student_id', class: 'form-control'
 
-          = f.submit t(:btn_finish_registration), class: 'btn btn-lg btn-primary btn-toolbar'
-          = link_to t(:btn_skip), register_path, class: 'btn',
-                                             data: {confirm: t(:cannot_edit) + "\n" + t(:you_sure)}
+          = f.submit t(:btn_finish_registration), class: 'btn btn-lg btn-primary btn-toolbar',
+                                            data: {confirm: t(:cannot_edit) + "\n" + t(:you_sure)}
+          = link_to t(:btn_skip), register_path, class: 'btn'
