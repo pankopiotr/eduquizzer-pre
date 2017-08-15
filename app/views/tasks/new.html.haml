@@ -1,2 +1,63 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+= provide(:title, t(:create_task))
+.center
+  = form_for :task, url: tasks_path do |f|
+    = render 'shared/task_error_messages'
+    .row.text-center
+      .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+        .jumbotron
+          %h2= t(:create_task)
+          .row
+            .col-lg-6.col-md-6.col-sm-6.col-xs-12
+              = f.label t(:par_task_name)
+              %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_new_name)} info_outline
+              = f.text_field 'name', maxlength: 255, class: 'form-control'
+
+              = f.label t(:par_category)
+              = f.select 'category', %w[Placeholder1 Placeholder2], {include_blank: true}, {class: 'form-control'}
+              -# Add category create button
+              -# Add category remove button
+
+              = f.label t(:par_task_type)
+              = f.select 'type', %w[Close-ended Semi-open], {include_blank: true}, {class: 'form-control', id: 'type_of_task'}
+
+            .col-lg-6.col-md-6.col-sm-6.col-xs-12
+              = f.label t(:par_asset)
+              %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_asset)} info_outline
+              = f.file_field 'category'
+
+          .description
+            = f.label t(:par_description)
+            %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_description)} info_outline
+            = f.text_area 'name', class: 'form-control'
+
+            = f.check_box 'mathjax'
+            = f.label t(:par_mathjax)
+            %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_mathjax)} info_outline
+
+          .row
+            .correct_solutions.col-lg-6.col-md-6.col-sm-6.col-xs-12
+              = f.label t(:par_correct_solutions)
+              #generated_correct_solutions
+              = button_tag t(:btn_add_correct_solution), type: 'button', class: 'btn btn-primary btn-toolbar', id: 'add_correct_solution'
+
+            .wrong_solutions.col-lg-6.col-md-6.col-sm-6.col-xs-12
+              = f.label t(:par_wrong_solutions)
+              #generated_wrong_solutions
+              = button_tag t(:btn_add_wrong_solution), type: 'button', class: 'btn btn-primary btn-toolbar', id: 'add_wrong_solution'
+
+          #close-ended_task{class: 'hidden'}
+            = f.check_box 'random', id: 'randomize_task'
+            = f.label t(:par_random)
+            %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_random)} info_outline
+            #randomize{class: 'hidden'}
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-12
+                  = f.label t(:par_number_of_solutions)
+                  %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_no_solutions)} info_outline
+                  = f.number_field 'no_solutions', class: 'form-control'
+
+                .col-lg-6.col-md-6.col-sm-6.col-xs-12
+                  = f.label t(:par_min_number_of_correct_solutions)
+                  %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_min_no_correct_solutions)} info_outline
+                  = f.number_field 'min_no_correct_solutions', class: 'form-control'
+          = f.submit t(:btn_create_new_task), class: 'btn btn-lg btn-primary btn-toolbar'

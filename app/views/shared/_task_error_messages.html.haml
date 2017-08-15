@@ -1,0 +1,7 @@
+- if @task.errors.any?
+  #error_explanation
+    .alert.alert-danger.col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+      - t(:form_has) + ' ' + I18n.t(:error, count: @task.errors.count)
+      %ul
+        - @task.errors.full_messages.each do |msg|
+          %li= msg

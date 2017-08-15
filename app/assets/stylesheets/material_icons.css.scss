@@ -22,6 +22,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.input-group-addon:hover {
+  background-color: #286090;
+  color: white;
+}
 /* Unstyled (outside) input group (redundant) */
 
 .input-group.input-group-unstyled input.form-control {

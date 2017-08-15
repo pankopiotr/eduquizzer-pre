@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     post '/signin', to: 'sessions#create'
     get '/signout', to: 'sessions#destroy'
     get '/interface', to: 'users#show'
+    resources :tasks, only: %i[new create]
   end
 end
