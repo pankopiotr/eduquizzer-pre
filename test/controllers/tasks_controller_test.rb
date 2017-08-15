@@ -1,14 +1,8 @@
 require 'test_helper'
 
-class TasksControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get tasks_new_url
+class TasksControlerTest < ActionDispatch::IntegrationTest
+  test 'should get new' do
+    get new_task_path
     assert_response :success
   end
-
-  test "should get create" do
-    get tasks_create_url
-    assert_response :success
-  end
-
 end
