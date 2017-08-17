@@ -43,6 +43,7 @@ en:
   par_number_of_solutions: "Number of randomized solutions"
   par_min_number_of_correct_solutions: "Minimal number of correct solutions"
   par_name: "Name"
+  par_score: "Score"
 
   # Buttons
   btn_back: "Back"

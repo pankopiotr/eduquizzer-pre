@@ -19,6 +19,9 @@
               = f.label t(:par_task_type)
               = f.select 'task_type', %w[Close-ended Semi-open], {include_blank: true}, {class: 'form-control', id: 'type_of_task'}
 
+              = f.label t(:par_score)
+              = f.number_field 'score', min: '0', step: '1', class: 'form-control'
+
             .col-lg-6.col-md-6.col-sm-6.col-xs-12
               = f.label t(:par_asset)
               %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_asset)} info_outline
@@ -53,12 +56,13 @@
                 .col-lg-6.col-md-6.col-sm-6.col-xs-12
                   = f.label t(:par_number_of_solutions)
                   %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_no_solutions)} info_outline
-                  = f.number_field 'no_solutions', class: 'form-control'
+                  = f.number_field 'no_solutions', min: '1', step: '1', class: 'form-control'
 
                 .col-lg-6.col-md-6.col-sm-6.col-xs-12
                   = f.label t(:par_min_number_of_correct_solutions)
                   %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_min_no_correct_solutions)} info_outline
-                  = f.number_field 'min_no_correct_solutions', class: 'form-control'
+                  = f.number_field 'min_no_correct_solutions', min: '0', step: '1', class: 'form-control'
+
           .btn-group.btn-group-justified.hidden-xs
             .btn-group
               = f.submit t(:btn_create_new_task), class: 'btn btn-lg btn-primary btn-toolbar'
