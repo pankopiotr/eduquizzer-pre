@@ -15,6 +15,6 @@
         %h2= t(:delete_category)
         = form_for :category, url: categories_modify_path, method: :delete do |f|
           = f.label t(:par_name)
-          = f.collection_select 'name', Category.order(:name), :name, :name, {include_blank: true}, {class: 'form-control'}
+          = f.collection_select 'name', Category.order(:name), :name, :name, {}, {class: 'form-control'}
 
           = f.submit t(:btn_delete_category), class: 'btn btn-lg btn-primary btn-toolbar'
