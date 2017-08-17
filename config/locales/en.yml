@@ -5,6 +5,8 @@ en:
   no_account: "New to EduQuizzer?"
   have_account: "Already have an account?"
   you_sure: "Are you sure?"
+  create_category: "Create category"
+  delete_category: "Delete category"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first."
@@ -18,6 +20,7 @@ en:
   register: "Register"
   additional_info: "Additional info"
   sign_in: "Sign in"
+  modify_categories: "Modify categories"
 
   # Parameters
   par_first_name: "First name"
@@ -36,6 +39,7 @@ en:
   par_random: "Randomize solutions"
   par_number_of_solutions: "Number of randomized solutions"
   par_min_number_of_correct_solutions: "Minimal number of correct solutions"
+  par_name: "Name"
 
   # Buttons
   btn_back: "Back"
@@ -55,6 +59,8 @@ en:
   btn_add_wrong_solution: "Add wrong solution"
   btn_create_new_task: "Create new task"
   btn_remove_correct_solution: "Remove correct solution"
+  btn_create_category: "Create category"
+  btn_delete_category: "Delete category"
 
   # Tooltips
   tt_task_new_name: "Must be unique and up to 255 characters"
