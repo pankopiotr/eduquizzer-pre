@@ -14,8 +14,7 @@
 
               = f.label t(:par_category)
               = f.select 'category', %w[Placeholder1 Placeholder2], {include_blank: true}, {class: 'form-control'}
-              -# Add category create button
-              -# Add category remove button
+              = link_to t(:btn_modify_categories), categories_modify_path, class: 'btn btn-primary btn-block'
 
               = f.label t(:par_task_type)
               = f.select 'type', %w[Close-ended Semi-open], {include_blank: true}, {class: 'form-control', id: 'type_of_task'}
@@ -60,4 +59,11 @@
                   = f.label t(:par_min_number_of_correct_solutions)
                   %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_min_no_correct_solutions)} info_outline
                   = f.number_field 'min_no_correct_solutions', class: 'form-control'
-          = f.submit t(:btn_create_new_task), class: 'btn btn-lg btn-primary btn-toolbar'
+          .btn-group.btn-group-justified.hidden-xs
+            .btn-group
+              = f.submit t(:btn_create_new_task), class: 'btn btn-lg btn-primary btn-toolbar'
+            .btn-group
+              = link_to t(:btn_cancel), '#', class: 'btn btn-lg btn-primary btn-toolbar'
+          .btn-group-vertical.visible-xs
+            = f.submit t(:btn_create_new_task), class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_cancel), '#', class: 'btn btn-lg btn-primary'

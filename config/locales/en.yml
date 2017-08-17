@@ -63,6 +63,8 @@ en:
   btn_remove_correct_solution: "Remove correct solution"
   btn_create_category: "Create category"
   btn_delete_category: "Delete category"
+  btn_modify_categories: "Modify categories"
+  btn_cancel: "Cancel"
 
   # Tooltips
   tt_task_new_name: "Must be unique and up to 255 characters"
