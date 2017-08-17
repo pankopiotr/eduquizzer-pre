@@ -9,7 +9,7 @@
           = f.label t(:par_name)
           = f.text_field 'name', class: 'form-control'
 
-          = f.submit t(:btn_create_category), class: 'btn btn-lg btn-primary btn-toolbar'
+          = f.submit t(:btn_create_category), class: 'btn btn-primary btn-block'
 
 
         %h2= t(:delete_category)
@@ -17,4 +17,6 @@
           = f.label t(:par_name)
           = f.collection_select 'name', Category.order(:name), :name, :name, {}, {class: 'form-control'}
 
-          = f.submit t(:btn_delete_category), class: 'btn btn-lg btn-primary btn-toolbar'
+          = f.submit t(:btn_delete_category), class: 'btn btn-primary btn-block'
+
+        = link_to t(:btn_cancel), new_task_path, class: 'btn btn-lg btn-primary btn-toolbar'
