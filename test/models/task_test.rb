@@ -1,7 +1,73 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @task = Task.new(name: 'Apples', task_type: 'close-ended', category: 'test',
+                     description: 'Are apples blue?',
+                     correct_solutions: %w[no nope false],
+                     wrong_solutions: %w[yes definitely true], score: 1,
+                     deleted: false, mathjax: false, random: true,
+                     no_solutions: 4, min_no_correct_solutions: 1)
+  end
+
+  test 'should validate task' do
+    assert @task.valid?
+  end
+
+  test 'should not validate empty name' do
+    @task.name = ''
+    refute @task.valid?
+  end
+
+  test 'should not validate empty score' do
+    @task.score = nil
+    refute @task.valid?
+  end
+
+  test 'should not validate empty task type' do
+    @task.task_type = ''
+    refute @task.valid?
+  end
+
+  test 'should not validate empty solutions' do
+    @task.correct_solutions = []
+    @task.wrong_solutions = []
+    refute @task.valid?
+  end
+
+  test 'should not validate duplicated name' do
+    @copycat_task = @task.dup
+    @task.save
+    refute @copycat_task.valid?
+  end
+
+  test 'should not validate number of random solutions greater then overall solutions count' do
+    @task.no_solutions = 7
+    refute @task.valid?
+  end
+
+  test 'should not validate number of random solutions being negative or equal to 0' do
+    @task.no_solutions = 0
+    refute @task.valid?
+  end
+
+  test 'should validate nil number of random solutions' do
+    @task.no_solutions = nil
+    assert @task.valid?
+  end
+
+  test 'should not validate minimal number of correct solutions greater then overall correct solutions count' do
+    @task.min_no_correct_solutions = 4
+    refute @task.valid?
+  end
+
+  test 'should not validate minimal number of correct solutions being negative' do
+    @task.min_no_correct_solutions = -1
+    refute @task.valid?
+  end
+
+  test 'should validate nil minimal number of correct solutions' do
+    @task.min_no_correct_solutions = nil
+    assert @task.valid?
+  end
 end
