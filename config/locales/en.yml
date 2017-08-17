@@ -14,6 +14,8 @@ en:
   finish_your_registration: "Finish your registration first."
   unauthorized: "Unauthorized access"
   wrong_credentials: "Wrong password or email."
+  category_created: "Category has been created"
+  category_deleted: "Category has been deleted"
 
   # Page titles
   create_task: "Create new task"
