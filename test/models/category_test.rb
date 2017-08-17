@@ -10,7 +10,7 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test 'should not validate duplicated category' do
-    @copycat_category = @category
+    @copycat_category = @category.dup
     @category.save
     refute @copycat_category.valid?
   end
