@@ -6,6 +6,12 @@ module UsersHelper
       current_user.email
     end
   end
+
+  def authenticated?(remember_token)
+    return false if cookie_digest.nil?
+    BCrypt::Password.new(cookie_digest).is_password?(remember_token)
+  end
+
   private
 
     def user_required_params
