@@ -1,4 +1,12 @@
 en:
+  errors: &errors
+    tasks:
+      solution_must_be_present: "There must be at least one solution"
+      min_no_rcs_must_be_positive: "Number of random correct solutions must be positive"
+      min_no_rcs_must_cannot_exceed_number_of_correct_solutions: "Minimal number of random correct solutions cannot exceed count of correct solutions"
+      no_random_solutions_must_be_at_least_one: "Number of random solutions must greater then 0"
+      no_random_solutions_cannot_exceed_number_of_all_solutions: "Number of random solutions cannot exceed count of all solutions"
+
   # General
   cannot_edit: "You cannot edit this information after you submit it."
   forgot_password: "Forgot password?"
@@ -17,6 +25,7 @@ en:
   wrong_credentials: "Wrong password or email."
   category_created: "Category has been created"
   category_deleted: "Category has been deleted"
+  must_have_solution: "Must have at least one solution"
 
   # Page titles
   create_task: "Create new task"
