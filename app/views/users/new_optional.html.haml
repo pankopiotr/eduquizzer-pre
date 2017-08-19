@@ -9,11 +9,9 @@
           %h2= t(:additional_info)
 
           = f.label t(:par_first_name)
-          %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_first_name)} info_outline
           = f.text_field 'first_name', maxlength: 16, class: 'form-control'
 
           = f.label t(:par_last_name)
-          %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_last_name)} info_outline
           = f.text_field 'last_name', maxlength: 32, class: 'form-control'
 
           = f.label t(:par_student_id)
