@@ -79,6 +79,6 @@ en:
   tt_rgstr_password: "Must be between 8 and 64 characters long."
   tt_rgstr_student_id: "Must be 5 or 6 characters long."
   tt_task_random: "Should solutions be chosen at random?"
-  tt_task_no_solutions: "Defines how many out of all solutions should be displayed to user. Solutions will be chosen at random."
-  tt_task_min_no_correct_solutions: "Defines minimal number of correct solutions that task must display to user. Correct solutions will be chosen at random."
+  tt_task_no_random_solutions: "Defines how many out of all solutions should be displayed to user. Solutions will be chosen at random."
+  tt_task_min_no_random_correct_solutions: "Defines minimal number of correct solutions that task must display to user. Correct solutions will be chosen at random."
 

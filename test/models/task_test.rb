@@ -7,7 +7,7 @@ class TaskTest < ActiveSupport::TestCase
                      correct_solutions: %w[no nope false],
                      wrong_solutions: %w[yes definitely true], score: 1,
                      deleted: false, mathjax: false, random: true,
-                     no_solutions: 4, min_no_correct_solutions: 1)
+                     no_random_solutions: 4, min_no_random_correct_solutions: 1)
   end
 
   test 'should validate task' do
@@ -42,32 +42,32 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test 'should not validate number of random solutions greater then overall solutions count' do
-    @task.no_solutions = 7
+    @task.no_random_solutions = 7
     refute @task.valid?
   end
 
   test 'should not validate number of random solutions being negative or equal to 0' do
-    @task.no_solutions = 0
+    @task.no_random_solutions = 0
     refute @task.valid?
   end
 
   test 'should validate nil number of random solutions' do
-    @task.no_solutions = nil
+    @task.no_random_solutions = nil
     assert @task.valid?
   end
 
   test 'should not validate minimal number of correct solutions greater then overall correct solutions count' do
-    @task.min_no_correct_solutions = 4
+    @task.min_no_random_correct_solutions = 4
     refute @task.valid?
   end
 
   test 'should not validate minimal number of correct solutions being negative' do
-    @task.min_no_correct_solutions = -1
+    @task.min_no_random_correct_solutions = -1
     refute @task.valid?
   end
 
   test 'should validate nil minimal number of correct solutions' do
-    @task.min_no_correct_solutions = nil
+    @task.min_no_random_correct_solutions = nil
     assert @task.valid?
   end
 end

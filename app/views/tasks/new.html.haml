@@ -55,13 +55,13 @@
               .row
                 .col-lg-6.col-md-6.col-sm-6.col-xs-12
                   = f.label t(:par_number_of_solutions)
-                  %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_no_solutions)} info_outline
-                  = f.number_field 'no_solutions', min: '1', step: '1', class: 'form-control'
+                  %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_no_random_solutions)} info_outline
+                  = f.number_field 'no_random_solutions', min: '1', step: '1', class: 'form-control'
 
                 .col-lg-6.col-md-6.col-sm-6.col-xs-12
                   = f.label t(:par_min_number_of_correct_solutions)
-                  %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_min_no_correct_solutions)} info_outline
-                  = f.number_field 'min_no_correct_solutions', min: '0', step: '1', class: 'form-control'
+                  %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_min_no_random_correct_solutions)} info_outline
+                  = f.number_field 'min_no_random_correct_solutions', min: '0', step: '1', class: 'form-control'
 
           .btn-group.btn-group-justified.hidden-xs
             .btn-group

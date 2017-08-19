@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817185517) do
+ActiveRecord::Schema.define(version: 20170819100916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +27,16 @@ ActiveRecord::Schema.define(version: 20170817185517) do
     t.string   "category"
     t.text     "description"
     t.text     "asset"
-    t.text     "correct_solutions",        default: [],              array: true
-    t.text     "wrong_solutions",          default: [],              array: true
+    t.text     "correct_solutions",               default: [],              array: true
+    t.text     "wrong_solutions",                 default: [],              array: true
     t.integer  "score"
     t.boolean  "deleted"
     t.boolean  "mathjax"
     t.boolean  "random"
-    t.integer  "no_solutions"
-    t.integer  "min_no_correct_solutions"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "no_random_solutions"
+    t.integer  "min_no_random_correct_solutions"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   create_table "users", force: :cascade do |t|
