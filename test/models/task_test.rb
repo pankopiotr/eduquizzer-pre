@@ -35,6 +35,13 @@ class TaskTest < ActiveSupport::TestCase
     refute @task.valid?
   end
 
+  test 'should validate presence of only one type of solutions' do
+    @task.correct_solutions = []
+    @task.no_random_solutions = 2
+    @task. min_no_random_correct_solutions = 0
+    assert @task.valid?
+  end
+
   test 'should not validate duplicated name' do
     @copycat_task = @task.dup
     @task.save
@@ -69,5 +76,12 @@ class TaskTest < ActiveSupport::TestCase
   test 'should validate nil minimal number of correct solutions' do
     @task.min_no_random_correct_solutions = nil
     assert @task.valid?
+  end
+
+  test 'should clean random options if task is not randomized' do
+    @task.random = false
+    @task.save
+    assert_nil Task.find_by(name: 'Apples').no_random_solutions
+    assert_nil Task.find_by(name: 'Apples').min_no_random_correct_solutions
   end
 end
