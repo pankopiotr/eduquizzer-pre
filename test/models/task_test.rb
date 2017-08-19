@@ -7,7 +7,8 @@ class TaskTest < ActiveSupport::TestCase
                      correct_solutions: %w[no nope false],
                      wrong_solutions: %w[yes definitely true], score: 1,
                      deleted: false, mathjax: false, random: true,
-                     no_random_solutions: 4, min_no_random_correct_solutions: 1)
+                     no_random_solutions: 4, min_no_random_correct_solutions: 1,
+                     user_id: '1')
   end
 
   test 'should validate task' do
@@ -26,6 +27,11 @@ class TaskTest < ActiveSupport::TestCase
 
   test 'should not validate empty task type' do
     @task.task_type = ''
+    refute @task.valid?
+  end
+
+  test 'should not validate empty author' do
+    @task.user_id = ''
     refute @task.valid?
   end
 
