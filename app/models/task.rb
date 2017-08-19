@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   TASK_TYPES_LIST = %w[Close-ended Semi-open]
   before_validation :clean_random_options
   validates :name, uniqueness: true
-  validates :task_type, :score, :name, presence: true
+  validates :task_type, :score, :name, :user_id, presence: true
   validate :present_solutions, :positive_no_random_solutions,
            :no_solutions_le_max, :positive_min_correct_random_solutions,
            :min_correct_random_solutions_le_max
