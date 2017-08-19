@@ -2,7 +2,9 @@ class Task < ApplicationRecord
   before_validation :clean_random_options
   validates :name, uniqueness: true
   validates :task_type, :score, :name, presence: true
-  validate :present_solutions, :random_options
+  validate :present_solutions, :positive_no_random_solutions,
+           :no_solutions_le_max, :positive_min_correct_random_solutions,
+           :min_correct_random_solutions_le_max
 
   def all_solutions
     correct_solutions + wrong_solutions
@@ -10,25 +12,38 @@ class Task < ApplicationRecord
 
   private
 
-    def random_options
+    def positive_no_random_solutions
+      if no_random_solutions.present?
+        unless no_random_solutions >= 1
+          errors.add(:no_random_solutions,
+                     :must_be_at_least_one)
+        end
+      end
+    end
+
+    def no_solutions_le_max
       if no_random_solutions.present?
         unless no_random_solutions <= all_solutions.count
           errors.add(:no_random_solutions,
-                     :no_random_solutions_cannot_exceed_number_of_all_solutions)
-        end
-        unless no_random_solutions >= 1
-          errors.add(:no_random_solutions,
-                     :no_random_solutions_must_be_at_least_one)
+                     :cannot_exceed_number_of_all_solutions)
         end
       end
+    end
+
+    def positive_min_correct_random_solutions
+      if min_no_random_correct_solutions.present?
+        unless min_no_random_correct_solutions >= 0
+          errors.add(:min_no_random_correct_solutions,
+                     :must_be_positive)
+        end
+      end
+    end
+
+    def min_correct_random_solutions_le_max
       if min_no_random_correct_solutions.present?
         unless min_no_random_correct_solutions <= correct_solutions.count
           errors.add(:min_no_random_correct_solutions,
-                     :min_no_rcs_must_cannot_exceed_number_of_correct_solutions)
-        end
-        unless min_no_random_correct_solutions >= 0
-          errors.add(:min_no_random_correct_solutions,
-                     :min_no_rcs_must_be_positive)
+                     :cannot_exceed_number_of_correct_solutions)
         end
       end
     end
