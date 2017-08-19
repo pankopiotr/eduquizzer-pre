@@ -10,15 +10,15 @@
 
           = f.label t(:par_first_name)
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_first_name)} info_outline
-          = f.text_field 'first_name', class: 'form-control'
+          = f.text_field 'first_name', maxlength: 16, class: 'form-control'
 
           = f.label t(:par_last_name)
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_last_name)} info_outline
-          = f.text_field 'last_name', class: 'form-control'
+          = f.text_field 'last_name', maxlength: 32, class: 'form-control'
 
           = f.label t(:par_student_id)
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_student_id)} info_outline
-          = f.text_field 'student_id', class: 'form-control'
+          = f.text_field 'student_id', maxlength: 6, class: 'form-control'
 
           = f.submit t(:btn_finish_registration), class: 'btn btn-lg btn-primary btn-toolbar',
                                             data: {confirm: t(:cannot_edit) + "\n" + t(:you_sure)}

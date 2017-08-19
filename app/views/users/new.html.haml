@@ -10,11 +10,11 @@
 
           = f.label t(:par_email)
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_email)} info_outline
-          = f.text_field 'email', class: 'form-control'
+          = f.text_field 'email', maxlength: 64, class: 'form-control'
 
           = f.label t(:par_password)
           %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_password)} info_outline
-          = f.password_field 'password', class: 'form-control'
+          = f.password_field 'password', maxlength: 64, class: 'form-control'
 
           = f.submit t(:btn_register), class: 'btn btn-lg btn-primary btn-toolbar'
 
