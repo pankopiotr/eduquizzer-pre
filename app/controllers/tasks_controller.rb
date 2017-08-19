@@ -2,7 +2,6 @@ class TasksController < ApplicationController
   include TasksHelper
 
   def new
-    @all_task_types = Task::TASK_TYPES_LIST
     @task = Task.new
   end
 

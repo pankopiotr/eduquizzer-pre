@@ -18,7 +18,7 @@
               = link_to t(:btn_modify_categories), categories_modify_path, class: 'btn btn-primary btn-block', data: { confirm: t(:changes_lost_proceed) }
 
               = f.label t(:par_task_type)
-              = f.select 'task_type', @all_task_types, {include_blank: true}, {class: 'form-control', id: 'type_of_task'}
+              = f.select 'task_type', Task::TASK_TYPES_LIST, {include_blank: true}, {class: 'form-control', id: 'type_of_task'}
 
               = f.label t(:par_score)
               = f.number_field 'score', min: '0', step: '1', class: 'form-control'
