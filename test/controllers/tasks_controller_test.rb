@@ -1,12 +1,17 @@
 require 'test_helper'
 
 class TasksControlerTest < ActionDispatch::IntegrationTest
+  def setup
+    @user = users(:john)
+  end
+
   test 'should get new' do
     get new_task_path
     assert_response :success
   end
 
   test 'should create task' do
+    sign_in_as(@user)
     get new_task_path
     post '/tasks', params: { task: { name: 'Apples',
                                      task_type: 'close-ended',
