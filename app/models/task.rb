@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   TASK_TYPES_LIST = %w[Close-ended Semi-open]
+  belongs_to :user
   before_validation :clean_random_options
   validates :name, uniqueness: true
   validates :task_type, :score, :name, :user_id, presence: true

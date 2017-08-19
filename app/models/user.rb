@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include UsersHelper
-
+  has_many :tasks
   before_save :encrypt_password
   attr_accessor :remember_token, :updating_password, :password
   validates :email,      presence: true, length: { maximum: 64 },
