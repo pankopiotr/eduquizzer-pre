@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       helpers.sign_in @user
       helpers.remember @user
+      flash.now[:success] = t(:account_created)
       render 'new_optional'
     else
       render 'new'

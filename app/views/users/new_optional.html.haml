@@ -1,7 +1,8 @@
 = provide(:title, t(:additional_info))
 .center
   = form_for :user, url: register_optional_path do |f|
-    = render 'shared/user_error_messages'
+    = render 'shared/small_flash'
+    = render 'user_error_messages'
     .row.text-center
       .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-8.col-sm-offset-2.col-xs-12
         .jumbotron

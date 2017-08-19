@@ -29,15 +29,17 @@ en:
   changes_lost_proceed: "Your changes will be lost. Proceed?"
 
   # Alerts, errors and notices
-  already_signed_in: "You are already signed in. Sign out or delete cookies first."
-  completed_optional_once: "You already have completed optional registration. If you need to change your credentials, contact administrator."
-  finish_your_registration: "Finish your registration first."
+  already_signed_in: "You are already signed in. Sign out or delete cookies first"
+  completed_optional_once: "You already have completed optional registration. If you need to change your credentials, contact administrator"
+  finish_your_registration: "Finish your registration first"
   unauthorized: "Unauthorized access"
   wrong_credentials: "Wrong password or email."
   category_created: "Category has been created"
   category_deleted: "Category has been deleted"
   must_have_solution: "Must have at least one solution"
   task_created: "Task has been created"
+  account_created: "Account has been created"
+  full_registration_completed: "Full account registration has been completed"
 
   # Page titles
   create_task: "Create new task"
