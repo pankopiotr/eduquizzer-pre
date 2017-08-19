@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find_by(category_required_params)
-    if @category.destroy
+    if @category && @category.destroy
       flash.now[:success] = t(:category_deleted)
       render 'new'
     else
