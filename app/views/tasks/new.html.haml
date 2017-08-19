@@ -1,7 +1,7 @@
 = provide(:title, t(:create_task))
 .center
   = form_for :task, url: tasks_path do |f|
-    = render 'shared/task_error_messages'
+    = render 'task_error_messages'
     .row.text-center
       .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
         .jumbotron
