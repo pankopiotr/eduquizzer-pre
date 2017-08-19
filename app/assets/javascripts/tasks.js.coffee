@@ -1,5 +1,5 @@
 `
-$(function() {
+$(document).on('turbolinks:load', function() {
   if ($('#type_of_task').val()  == 'Close-ended') {
     const container = $('#close-ended_task');
     container.removeClass('hidden');
