@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
+  include Session
+  helper_method :signed_in?, :current_user
   protect_from_forgery with: :exception
   before_action :set_locale
 

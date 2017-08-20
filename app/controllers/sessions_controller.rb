@@ -3,7 +3,6 @@
 class SessionsController < ApplicationController
   include SessionExtension
   include CreateSession
-  include SessionsHelper
   before_action :find_user, only: :create
 
   def new
