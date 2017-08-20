@@ -1,27 +1,25 @@
-class CategoriesController < ApplicationController
-  include CategoriesHelper
+# frozen_string_literal: true
 
+class CategoriesController < ApplicationController
   def new
     @category = Category.new
   end
 
   def create
     @category = Category.new(category_required_params)
-    if @category.save
-      flash.now[:success] = t(:category_created)
-      render 'new'
-    else
-      render 'new'
-    end
+    flash.now[:success] = t(:category_created) if @category.save
+    render 'new'
   end
 
   def destroy
     @category = Category.find_by(category_required_params)
-    if @category && @category.destroy
-      flash.now[:success] = t(:category_deleted)
-      render 'new'
-    else
-      render 'new'
-    end
+    flash.now[:success] = t(:category_deleted) if @category&.destroy
+    render 'new'
   end
+
+  private
+
+    def category_required_params
+      params.require(:category).permit(:name)
+    end
 end

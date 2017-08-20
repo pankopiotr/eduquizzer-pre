@@ -1,7 +1,4 @@
-module CategoriesHelper
-  private
+# frozen_string_literal: true
 
-    def category_required_params
-      params.require(:category).permit(:name)
-    end
+module CategoriesHelper
 end
