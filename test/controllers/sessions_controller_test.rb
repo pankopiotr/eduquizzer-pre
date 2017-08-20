@@ -40,16 +40,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal current_url, @url
   end
 
-  test 'should not sign in user when one is already signed in' do
-    get signin_path
-    @url = current_url
-    sign_in_as(@user)
-    assert in_session?
-    sign_in_as(@other_user)
-    refute flash[:danger].nil?
-    assert_equal current_url, @url
-  end
-
   test 'should not sign in inactive user' do
     get signin_path
     @url = current_url
