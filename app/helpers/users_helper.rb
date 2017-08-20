@@ -8,20 +8,4 @@ module UsersHelper
       current_user.email
     end
   end
-
-  # Methods below have to be moved to concerns
-  # as they are used in multiple controllers
-
-  def generate_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def digest(string)
-    cost = if ActiveModel::SecurePassword.min_cost
-             BCrypt::Engine::MIN_COST
-           else
-             BCrypt::Engine.cost
-           end
-    BCrypt::Password.create(string, cost: cost)
-  end
 end

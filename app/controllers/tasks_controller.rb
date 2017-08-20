@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
+  include TaskExtension
+
   def new
     @task = Task.new
   end
@@ -14,15 +16,5 @@ class TasksController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  private
-
-  def task_params
-    params.require(:task).permit(:name, :task_type, :category, :description,
-                                 :asset, :score, :mathjax, :random,
-                                 :no_random_solutions,
-                                 :min_no_random_correct_solutions,
-                                 correct_solutions: [], wrong_solutions: [])
   end
 end

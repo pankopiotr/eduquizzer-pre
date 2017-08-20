@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  include SessionExtension
+  include CreateSession
   include SessionsHelper
   before_action :find_user, only: :create
 
@@ -22,27 +24,4 @@ class SessionsController < ApplicationController
     sign_out if signed_in?
     redirect_to root_path
   end
-
-  private
-
-    def authenticate(password)
-      @password = BCrypt::Password.new(@user.password_digest)
-      @password == password
-    end
-
-    def find_user
-      @user = User.find_by(email: params[:session][:email])
-    end
-
-    def sign_out
-      forget(current_user)
-      session.delete(:user_id)
-      @current_user = nil
-    end
-
-    def forget(user)
-      user.forget
-      cookies.delete(:user_id)
-      cookies.delete(:remember_token)
-    end
 end
