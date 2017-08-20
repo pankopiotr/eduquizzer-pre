@@ -9,6 +9,9 @@ module UsersHelper
     end
   end
 
+  # Methods below have to be moved to concerns
+  # as they are used in multiple controllers
+
   def generate_token
     SecureRandom.urlsafe_base64
   end
