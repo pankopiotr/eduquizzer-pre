@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   include UsersHelper
-
   before_action :nil_optional_attributes?, only: %i[new_optional create_optional]
 
   def new
@@ -10,8 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_required_params)
     if @user.save
-      helpers.sign_in @user
-      helpers.remember @user
+      sign_in @user
+      remember @user
       flash.now[:success] = t(:account_created)
       render 'new_optional'
     else
