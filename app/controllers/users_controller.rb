@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   include GenerateDigest
   before_action :nil_optional_attributes?, only: %i[new_optional
                                                     create_optional]
-  skip_before_action :signed_in_user?, :correct_user?, only: %i[new create]
+  skip_before_action :signed_in_user?, only: %i[new create]
   skip_before_action :admin_user?
 
   def new
