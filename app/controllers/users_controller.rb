@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     if @user.update_attributes(user_optional_params)
       @user.update_attributes(active: true)
+      flash[:success] = t(:full_registration_completed)
       redirect_to interface_path
     else
       render 'new_optional'

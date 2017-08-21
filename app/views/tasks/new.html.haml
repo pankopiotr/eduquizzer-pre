@@ -1,10 +1,10 @@
 = provide(:title, t(:create_task))
-.center
+.row.center
   = form_for :task, url: tasks_path do |f|
-    = render 'shared/big_flash'
-    = render 'task_error_messages'
-    .row.text-center
-      .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+    .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+      = render 'task_error_messages'
+      .text-center
+        = render 'shared/flash'
         .jumbotron
           %h2= t(:create_task)
           .row

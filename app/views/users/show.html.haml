@@ -1,7 +1,8 @@
 = provide(:title, t(:register))
-.center
-  .row.text-center
-    .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-8.col-sm-offset-2.col-xs-12
+.row.center
+  .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-8.col-sm-offset-2.col-xs-12
+    .text-center
+      = render 'shared/flash'
       .jumbotron.btn-group-vertical
         - if current_user.admin?
           = link_to t(:btn_test_menu), '#', class: 'btn btn-lg btn-primary'
