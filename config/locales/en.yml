@@ -40,6 +40,8 @@ en:
   task_created: "Task has been created"
   account_created: "Account has been created"
   full_registration_completed: "Full account registration has been completed"
+  signin_first: "You have to sign in first"
+  access_denied: "Access denied"
 
   # Page titles
   create_task: "Create new task"

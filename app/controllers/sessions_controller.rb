@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
   include SessionExtension
   include CreateSession
   before_action :find_user, only: :create
+  skip_before_action :signed_in_user?, :correct_user?, only: %i[new create]
+  skip_before_action :admin_user?
 
   def new
   end
