@@ -5,7 +5,7 @@ module SessionExtension
 
   private
 
-    def authenticate(password)
+    def authenticated?(password)
       @password = BCrypt::Password.new(@user.password_digest)
       @password == password
     end

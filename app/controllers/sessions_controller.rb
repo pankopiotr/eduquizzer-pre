@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user&.active && authenticate(params[:session][:password])
+    if @user&.active && authenticated?(params[:session][:password])
       sign_in @user
       remember @user
       redirect_to interface_path
