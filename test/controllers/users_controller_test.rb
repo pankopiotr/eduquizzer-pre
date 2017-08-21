@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
@@ -58,5 +60,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get register_optional_path
     assert_response :redirect
   end
-
 end

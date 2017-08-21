@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
@@ -54,12 +56,14 @@ class TaskTest < ActiveSupport::TestCase
     refute @copycat_task.valid?
   end
 
-  test 'should not validate number of random solutions greater then overall solutions count' do
+  test 'should not validate number of random solutions
+                   greater then overall solutions count' do
     @task.no_random_solutions = 7
     refute @task.valid?
   end
 
-  test 'should not validate number of random solutions being negative or equal to 0' do
+  test 'should not validate number of random solutions
+                           being negative or equal to 0' do
     @task.no_random_solutions = 0
     refute @task.valid?
   end
@@ -69,12 +73,14 @@ class TaskTest < ActiveSupport::TestCase
     assert @task.valid?
   end
 
-  test 'should not validate minimal number of correct solutions greater then overall correct solutions count' do
+  test 'should not validate minimal number of correct solutions
+                    greater then overall correct solutions count' do
     @task.min_no_random_correct_solutions = 4
     refute @task.valid?
   end
 
-  test 'should not validate minimal number of correct solutions being negative' do
+  test 'should not validate minimal number of correct solutions
+                                                  being negative' do
     @task.min_no_random_correct_solutions = -1
     refute @task.valid?
   end

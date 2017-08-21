@@ -1,6 +1,13 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    @user = users(:john)
+    sign_in_as@user
+  end
+
   test 'should get categories modify path' do
     get categories_modify_path
     assert :success

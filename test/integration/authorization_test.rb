@@ -9,26 +9,18 @@ class AuthorizationTest < ActionDispatch::IntegrationTest
     @inactive_user = users(:bob)
   end
 
-  test 'should not let register if user is signed in' do
-    get signin_path
-    sign_in_as(@user)
-    assert_redirected_to interface_path
-    get register_path
-    post '/register', params: { user: { email: 'john.newman@example.com',
-                                        password: 'password12' } }
-    assert_nil User.find_by(email: 'john.newman@example.com')
-    assert_select 'div.alert-danger', '1'
-  end
-
-  test 'should not let signed out user access any interface' do
+  test 'should not let guest user access any interface' do
     get interface_path
     assert_redirected_to root_path
-    assert_select 'div.alert-danger', '1'
+    follow_redirect!
+    assert_select 'div.alert-danger', count: 1
   end
 
   test 'should not let normal user access admin interface' do
+    sign_in_as@user
     get new_task_path
     assert_redirected_to root_path
-    assert_select 'div.alert-danger', '1'
+    follow_redirect!
+    assert_select 'div.alert-danger', count: 1
   end
 end

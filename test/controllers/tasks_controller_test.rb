@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class TasksControlerTest < ActionDispatch::IntegrationTest
+class TasksControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:john)
+    sign_in_as@user
   end
 
   test 'should get new' do
@@ -11,7 +14,6 @@ class TasksControlerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create task' do
-    sign_in_as(@user)
     get new_task_path
     post '/tasks', params: { task: { name: 'Apples',
                                      task_type: 'close-ended',
