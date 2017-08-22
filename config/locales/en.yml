@@ -5,6 +5,7 @@ en:
         correct_solutions: ""
         min_no_random_correct_solutions: ""
         no_random_solutions: ""
+        asset: ""
     errors:
       models:
         task:
@@ -17,6 +18,13 @@ en:
             no_random_solutions:
               must_be_at_least_one: "Number of random solutions must greater then 0"
               cannot_exceed_number_of_all_solutions: "Number of random solutions cannot exceed count of all solutions"
+  errors:
+    messages:
+      carrierwave_processing_error: "Cannot resize image."
+      carrierwave_integrity_error: "Not an image."
+      carrierwave_download_error: "Couldn't download image."
+      extension_whitelist_error: "Cannot upload %{extension} files, allowed types: %{allowed_types}."
+      extension_blacklist_error: "Cannot upload %{extension} files, prohibited types: %{prohibited_types}."
 
   # General
   cannot_edit: "You cannot edit this information after you submit it."

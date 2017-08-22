@@ -8,6 +8,7 @@ class Task < ApplicationRecord
   validates :task_type, :score, :name, :user_id, presence: true
   validate :present_solutions, :random_solutions_check,
            :correct_random_solutions_check
+  mount_uploader :asset, AssetUploader
 
   private
 
