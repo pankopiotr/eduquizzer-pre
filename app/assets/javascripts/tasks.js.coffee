@@ -53,5 +53,19 @@ $(document).on('turbolinks:load', function() {
   $('#generated_wrong_solutions').on('click', '.remove_wrong_solution', function() {
     $(this).parent().remove();
   });
+
+  $('#picture-input').on('change', function(event) {
+    const files = event.target.files;
+    const image = files[0];
+    const target = $('#preview');
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      let img = new Image();
+      img.src = file.target.result;
+      target.html(img);
+      target.children('img').addClass('img-responsive');
+    }
+    reader.readAsDataURL(image);
+  });
 });
 `
