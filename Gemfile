@@ -35,6 +35,7 @@ gem 'pg'
 group :development, :test do
   # Debugging
   gem 'byebug', platform: :mri
+  gem 'rails-controller-testing'
 end
 
 group :development do
