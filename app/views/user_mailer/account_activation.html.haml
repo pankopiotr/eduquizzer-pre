@@ -1,0 +1,6 @@
+.h1 EduQuizzer
+%p= "#{t(:activate_welcome)}, #{@user.email}"
+
+%p= t(:activate_body)
+
+=link_to 'Activate', edit_account_activation_url(activation_token: @user.activation_token, email: @user.email)

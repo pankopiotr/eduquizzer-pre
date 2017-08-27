@@ -1,0 +1,5 @@
+<%= t(:activate_welcome) %>, <%= @user.email %>
+
+<%= t(:activate_body) %>
+
+<%= edit_account_activation_url(activation_token: @user.activation_token, email: @user.email) %>

@@ -11,10 +11,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user&.active && authenticated?(params[:session][:password])
-      sign_in @user
-      remember @user
-      redirect_to interface_path
+    if @user&.active? && authenticated?(params[:session][:password])
+      if @user.activated?
+        sign_in @user
+        remember @user
+        redirect_to interface_path
+      else
+        flash[:warning] = t(:account_not_activated)
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = t(:wrong_credentials)
       render 'new'

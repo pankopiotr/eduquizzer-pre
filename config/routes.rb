@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     post '/categories/modify', to: 'categories#create'
     delete '/categories/modify', to: 'categories#destroy'
     resources :tasks, only: %i[new create]
+    resources :account_activations, param: :activation_token, only: [:edit]
   end
 end

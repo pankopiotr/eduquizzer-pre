@@ -50,6 +50,9 @@ en:
   full_registration_completed: "Full account registration has been completed"
   signin_first: "You have to sign in first"
   access_denied: "Access denied"
+  account_activated: "Account activated"
+  activation_failure: "Invalid activation link or user was already activated"
+  account_not_activated: "Account was not activated. Check your email for activation link"
 
   # Page titles
   create_task: "Create new task"
@@ -113,3 +116,6 @@ en:
   tt_task_no_random_solutions: "Picking number will make every quiz have the exact number of random solutions displayed. Leave empty to randomize that number."
   tt_task_min_no_random_correct_solutions: "Picking number will make every quiz have at least that number of correct solutions. Leave empty to randomize that number."
 
+  # Emails
+  activate_welcome: "Welcome to Eduquizzer"
+  activate_body: "Please access the link below to activate your account."
