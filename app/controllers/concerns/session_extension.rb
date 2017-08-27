@@ -11,7 +11,7 @@ module SessionExtension
     end
 
     def find_user
-      @user = User.find_by(email: params[:session][:email])
+      @user = User.find_by(email: params[:session][:email].downcase)
     end
 
     def sign_out

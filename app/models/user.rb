@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :student_id, length: { in: 5..6 }, allow_blank: true,
                          numericality: true
   before_save :encrypt_password
-  before_create :create_activation_digest
+  before_create :create_activation_digest, :downcase_email
 
   def remember
     self.remember_token = generate_token
@@ -52,5 +52,9 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token  = generate_token
       self.activation_digest = digest(activation_token)
+    end
+
+    def downcase_email
+      self.email = email.downcase
     end
 end

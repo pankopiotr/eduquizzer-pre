@@ -113,4 +113,11 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_not @copycat_user.valid?
   end
+
+  # Should downcase email
+  test 'should downcase email' do
+    @user.email = 'JohnDoe@domain.com'
+    @user.save
+    assert_equal 'johndoe@domain.com', @user.email
+  end
 end

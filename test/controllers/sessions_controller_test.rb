@@ -22,6 +22,15 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
+  test 'should sign in user with non-lowercase email' do
+    get signin_path
+    @user.email = 'JohnDoe@example.com'
+    sign_in_as@user
+    assert flash[:danger].nil?
+    assert in_session?
+    assert_response :redirect
+  end
+
   test 'should not sign in user with invalid email' do
     get signin_path
     @user.email = 'doesnotexist@example.com'
