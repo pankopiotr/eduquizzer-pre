@@ -16,7 +16,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   test 'should create task' do
     get new_task_path
     post '/tasks', params: { task: { name: 'Apples',
-                                     task_type: 'close-ended',
+                                     task_type: 'Close-ended',
                                      category: 'test',
                                      description: 'Are apples blue?',
                                      correct_solutions: %w[no nope false],

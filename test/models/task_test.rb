@@ -4,7 +4,7 @@ require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
   def setup
-    @task = Task.new(name: 'Apples', task_type: 'close-ended', category: 'test',
+    @task = Task.new(name: 'Apples', task_type: 'Close-ended', category: 'test',
                      description: 'Are apples blue?',
                      correct_solutions: %w[no nope false],
                      wrong_solutions: %w[yes definitely true], score: 1,
@@ -65,6 +65,11 @@ class TaskTest < ActiveSupport::TestCase
   test 'should not validate number of random solutions
                            being negative or equal to 0' do
     @task.no_random_solutions = 0
+    refute @task.valid?
+  end
+
+  test 'should not validate unknown task type' do
+    @task.task_type = 'unknown'
     refute @task.valid?
   end
 

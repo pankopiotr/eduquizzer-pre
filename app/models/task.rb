@@ -7,7 +7,7 @@ class Task < ApplicationRecord
   validates :name, uniqueness: true
   validates :task_type, :score, :name, :user_id, presence: true
   validate :present_solutions, :random_solutions_check,
-           :correct_random_solutions_check
+           :correct_random_solutions_check, :correct_task_type
   mount_uploader :asset, AssetUploader
 
   private
@@ -47,5 +47,10 @@ class Task < ApplicationRecord
     def present_solutions
       return unless correct_solutions.blank? && wrong_solutions.blank?
       errors.add(:correct_solutions, :solution_must_be_present)
+    end
+
+    def correct_task_type
+      return if TASK_TYPES_LIST.include? task_type
+      errors.add(:task_type, :invalid_task_type)
     end
 end

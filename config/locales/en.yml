@@ -6,6 +6,7 @@ en:
         min_no_random_correct_solutions: ""
         no_random_solutions: ""
         asset: ""
+        task_type: ""
     errors:
       models:
         task:
@@ -18,6 +19,8 @@ en:
             no_random_solutions:
               must_be_at_least_one: "Number of random solutions must greater then 0"
               cannot_exceed_number_of_all_solutions: "Number of random solutions cannot exceed count of all solutions"
+            task_type:
+              invalid_task_type: "Invalid task type"
   errors:
     messages:
       carrierwave_processing_error: "Cannot resize image."
@@ -53,6 +56,7 @@ en:
   account_activated: "Account activated"
   activation_failure: "Invalid activation link or user was already activated"
   account_not_activated: "Account was not activated. Check your email for activation link"
+  invalid_task_type: "Invalid task type"
 
   # Page titles
   create_task: "Create new task"
