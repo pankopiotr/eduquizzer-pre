@@ -1,0 +1,13 @@
+= provide(:title, t(:recover_password))
+.row.center
+  = form_for :password_reset, url: password_resets_path do |f|
+    .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-8.col-sm-offset-2.col-xs-12
+      = render 'shared/flash'
+      .text-center
+        .jumbotron
+          %h2= t(:recover_password)
+
+          = f.label t(:par_email)
+          = f.text_field 'email', maxlength: 64, class: 'form-control'
+
+          = f.submit t(:btn_send_recovery_password), class: 'btn btn-lg btn-primary btn-toolbar'

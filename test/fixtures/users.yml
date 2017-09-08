@@ -34,6 +34,8 @@ josh:
   student_id:
   active: true
   activated: true
+  reset_digest: <%= BCrypt::Password.create('reset123') %>
+  reset_at: <%= Time.zone.now %>
 
 peter:
   email: peter.doe@example.com

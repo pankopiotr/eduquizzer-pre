@@ -38,6 +38,9 @@ en:
   create_category: "Create category"
   delete_category: "Delete category"
   changes_lost_proceed: "Your changes will be lost. Proceed?"
+  click_to_reset: "Click link below to reset password."
+  reset_password: "Reset password"
+  reset_link_expire: "This link will expire in two hours."
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -57,6 +60,11 @@ en:
   activation_failure: "Invalid activation link or user was already activated"
   account_not_activated: "Account was not activated. Check your email for activation link"
   invalid_task_type: "Invalid task type"
+  password_reset_sent: "Email sent with password reset instructions"
+  email_not_found: "Email address not found"
+  reset_link_expired: "Password reset has expired"
+  password_successfully_reset: "Password has been reset"
+  invalid_or_inactive_user: "Invalid or inactive user"
 
   # Page titles
   create_task: "Create new task"
@@ -64,6 +72,7 @@ en:
   additional_info: "Additional info"
   sign_in: "Sign in"
   modify_categories: "Modify categories"
+  recover_password: "Recover password"
 
   # Parameters
   par_first_name: "First name"
@@ -107,6 +116,7 @@ en:
   btn_delete_category: "Delete category"
   btn_modify_categories: "Modify categories"
   btn_cancel: "Cancel"
+  btn_send_recovery_password: "Reset password"
 
   # Tooltips
   tt_task_new_name: "Must be unique."

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   scope '(:locale)', locale: /en/ do
     root 'sessions#new'
     get '/register', to: 'users#new'
@@ -15,6 +19,8 @@ Rails.application.routes.draw do
     post '/categories/modify', to: 'categories#create'
     delete '/categories/modify', to: 'categories#destroy'
     resources :tasks, only: %i[new create]
-    resources :account_activations, param: :activation_token, only: [:edit]
+    resources :account_activations, param: :activation_token, only: %i[edit]
+    resources :password_resets, param: :reset_token, only: %i[new create
+                                                              edit update]
   end
 end

@@ -3,7 +3,8 @@
 class User < ApplicationRecord
   include GenerateDigest
   has_many :tasks
-  attr_accessor :remember_token, :updating_password, :password, :activation_token
+  attr_accessor :remember_token, :updating_password, :password,
+                :activation_token, :reset_token
   validates :email,      presence: true, length: { maximum: 64 },
                          uniqueness: { case_sensitive: false }, email: true
   validates :password,   presence: true, length: { in: 8..64 },
@@ -35,6 +36,26 @@ class User < ApplicationRecord
 
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def create_reset_digest
+    self.reset_token = generate_token
+    update_attribute(:reset_digest,  digest(reset_token))
+    update_attribute(:reset_at, Time.zone.now)
+  end
+
+  def password_reset_expired?
+    # this 5 seconds windows looks horrible. Refactor needed
+    reset_at < 1.hour.ago || reset_at < updated_at - 15.seconds
+  end
+
+  def clear_password_reset
+    update_attribute(:reset_digest, nil)
+    update_attribute(:reset_at, nil)
   end
 
   private

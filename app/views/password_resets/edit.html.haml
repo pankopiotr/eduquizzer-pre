@@ -1,0 +1,16 @@
+= provide(:title, t(:reset_password))
+.row.center
+  = form_for :user, method: :patch  , url: password_reset_path(params[:reset_token]) do |f|
+    .col-lg-4.col-lg-offset-4.col-md-4.col-md-offset-4.col-sm-8.col-sm-offset-2.col-xs-12
+      = render 'users/user_error_messages'
+      .text-center
+        .jumbotron
+          %h2= t(:reset_password)
+
+          = hidden_field_tag :email, @user.email
+
+          = f.label t(:par_password)
+          %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_rgstr_password)} info_outline
+          = f.password_field 'password', maxlength: 64, class: 'form-control'
+
+          = f.submit t(:btn_send_recovery_password), class: 'btn btn-lg btn-primary btn-toolbar'
