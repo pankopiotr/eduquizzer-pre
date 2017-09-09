@@ -21,6 +21,7 @@ en:
               cannot_exceed_number_of_all_solutions: "Number of random solutions cannot exceed count of all solutions"
             task_type:
               invalid_task_type: "Invalid task type"
+              blank: "Task type cannot be empty"
   errors:
     messages:
       carrierwave_processing_error: "Cannot resize image."
