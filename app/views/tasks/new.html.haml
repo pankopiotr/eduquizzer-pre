@@ -50,6 +50,10 @@
               #generated_wrong_solutions
               = button_tag t(:btn_add_wrong_solution), type: 'button', class: 'btn btn-primary btn-toolbar', id: 'add_wrong_solution'
 
+          - if params[:task]
+            .hidden{id: 'correct_solutions_params', data: {correct_solutions: params[:task][:correct_solutions]}}
+            .hidden{id: 'wrong_solutions_params', data: {wrong_solutions: params[:task][:wrong_solutions]}}
+
           #close-ended_task{class: 'hidden'}
             = f.check_box 'random', id: 'randomize_task'
             = f.label t(:par_random)
