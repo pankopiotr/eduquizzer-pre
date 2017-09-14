@@ -1,0 +1,7 @@
+- if @quiz.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      - t(:form_has) + ' ' + I18n.t(:error, count: @quiz.errors.count)
+      %ul
+        - @quiz.errors.full_messages.each do |msg|
+          %li= msg

@@ -1,0 +1,61 @@
+.table-limit {
+  max-height: 700px;
+  overflow: auto;
+}
+
+.row-p-t {
+  padding-top: 20px !important;
+}
+
+.clear-padding {
+  padding: 0 !important;
+}
+
+.clear-margin {
+  margin: 0;
+}
+
+.filter {
+  z-index: 1;
+  display: flex;
+  pointer-events: none;
+}
+
+.filter-box {
+  background-color: rgba(217, 83, 79, 0.7);
+  text-align: center;
+  padding: 12px;
+  border-bottom-right-radius: 12px;
+  overflow-y: auto;
+  flex: 1;
+  pointer-events: auto;
+}
+
+.filter-bookmark {
+  background-color: rgba(217, 83, 79, 0.7);
+  margin-left: 34px;
+  margin-right: -57px;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  align-self: flex-start;
+  pointer-events: auto;
+}
+
+.task-details {
+  text-align: left;
+  p {
+    font-size: 14px !important;
+  }
+}
+
+.clear-p-b-m {
+  padding: 0 !important;
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

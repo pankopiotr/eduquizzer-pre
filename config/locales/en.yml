@@ -39,9 +39,10 @@ en:
   create_category: "Create category"
   delete_category: "Delete category"
   changes_lost_proceed: "Your changes will be lost. Proceed?"
-  click_to_reset: "Click link below to reset password."
   reset_password: "Reset password"
-  reset_link_expire: "This link will expire in two hours."
+  remove: "Remove"
+  add: "Add"
+  all_tasks: "All tasks"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -66,6 +67,7 @@ en:
   reset_link_expired: "Password reset has expired"
   password_successfully_reset: "Password has been reset"
   invalid_or_inactive_user: "Invalid or inactive user"
+  filter_quiz_tasks: "Filter Quiz tasks as well"
 
   # Page titles
   create_task: "Create new task"
@@ -74,6 +76,7 @@ en:
   sign_in: "Sign in"
   modify_categories: "Modify categories"
   recover_password: "Recover password"
+  create_quiz: "Create new quiz"
 
   # Parameters
   par_first_name: "First name"
@@ -94,6 +97,14 @@ en:
   par_min_number_of_correct_solutions: "Minimal number of correct solutions"
   par_name: "Name"
   par_score: "Score"
+  par_quiz_name: "Quiz name"
+  par_quiz_password: "Quiz password"
+  par_time_limit: "Time limit"
+  par_no_random_tasks: "Number of random tasks"
+  par_id: "ID"
+  par_author: "Author"
+  par_created_at: "Created at"
+  par_quiz_tasks: "Quiz tasks"
 
   # Buttons
   btn_back: "Back"
@@ -118,6 +129,11 @@ en:
   btn_modify_categories: "Modify categories"
   btn_cancel: "Cancel"
   btn_send_recovery_password: "Reset password"
+  btn_generate_password: "Generate password"
+  btn_create_new_quiz: 'Create new quiz'
+  btn_filter: "Filter"
+  btn_clear: "Clear"
+  btn_edit: "Edit"
 
   # Tooltips
   tt_task_new_name: "Must be unique."
@@ -130,7 +146,12 @@ en:
   tt_task_random: "Check to randomize displayed solutions."
   tt_task_no_random_solutions: "Picking number will make every quiz have the exact number of random solutions displayed. Leave empty to randomize that number."
   tt_task_min_no_random_correct_solutions: "Picking number will make every quiz have at least that number of correct solutions. Leave empty to randomize that number."
+  tt_time_limit: "Time limit in minutes. Leave empty to turn off time limit."
+  tt_quiz_random: "Check to randomize displayed tasks."
+  tt_quiz_no_random_tasks: "Defines how many of all chosen tasks will be displayed to user."
 
-  # Emails
+  # Emails"
   activate_welcome: "Welcome to Eduquizzer"
   activate_body: "Please access the link below to activate your account."
+  click_to_reset: "Click link below to reset password."
+  reset_link_expire: "This link will expire in two hours."

@@ -1,0 +1,101 @@
+= provide(:title, t(:create_quiz))
+.row.center
+  = form_for :quiz, url: quizzes_path do |f|
+    .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+      = render 'quiz_error_messages'
+      .text-center
+        = render 'shared/flash'
+        .jumbotron
+          %h2= t(:create_quiz)
+          .row
+            .col-lg-6.col-md-6.col-sm-6.col-xs-12
+              = f.label t(:par_quiz_name)
+              %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_new_name)} info_outline
+              = f.text_field 'name', maxlength: 255, class: 'form-control'
+
+              = f.label t(:par_quiz_password)
+              = f.text_field 'password', maxlength: 255, class: 'form-control'
+              #generate_password{class: 'btn btn-primary btn-block'}= t(:btn_generate_password)
+
+            .col-lg-6.col-md-6.col-sm-6.col-xs-12
+
+              = f.label t(:par_time_limit)
+              %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_time_limit)} info_outline
+              = f.number_field 'time_limit', min: '1', step: '1', class: 'form-control'
+
+              = f.check_box 'random', id: 'randomize_quiz'
+              = f.label t(:par_random)
+              %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_quiz_random)} info_outline
+
+              #randomize{class: 'hidden'}
+                = f.label t(:par_no_random_tasks)
+                %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_quiz_no_random_tasks)} info_outline
+                = f.number_field 'no_random_tasks', min: '1', step: '1', class: 'form-control'
+          .hidden{id: 'remove_translated', data: {remove: t(:remove)}}
+          .hidden{id: 'add_translated', data: {add: t(:add)}}
+          - if params[:quiz]
+            .hidden{id: 'saved-tasks', data: {saved_tasks: params[:quiz][:tasks]}}
+          .row.row-p-t
+            .table-responsive
+              %table{class: 'table table-hover table-limit'}
+                %caption= t(:par_quiz_tasks)
+                %thead{class: 'thead-default'}
+                  %tr
+                    %th{class: 'text-center'}= t(:par_id)
+                    %th{class: 'text-center'}= t(:par_category)
+                    %th{class: 'text-center'}= t(:par_author)
+                    %th{class: 'text-center'}= t(:par_name)
+                    %th{class: 'text-center'}= t(:par_score)
+                    %th{class: 'text-center'}= t(:par_created_at)
+                %tbody{id: 'chosen-tasks'}
+          .row
+            .table-responsive.table-limit
+              %table{class: 'table table-hover'}
+                %caption= t(:all_tasks)
+                %thead{class: 'thead-inverse'}
+                  %tr
+                    %th{class: 'text-center'}= t(:par_id)
+                    %th{class: 'text-center'}= t(:par_category)
+                    %th{class: 'text-center'}= t(:par_author)
+                    %th{class: 'text-center'}= t(:par_name)
+                    %th{class: 'text-center'}= t(:par_score)
+                    %th{class: 'text-center'}= t(:par_created_at)
+                %tbody{id: 'all-tasks'}
+                  - @tasks.each do |task|
+                    %tr{class: 'cursor-pointer', 'data-toggle': 'collapse', 'data-target': "#accordion#{task.id}"}
+                      %td{class: 'id'}= task.id
+                      %td{class: 'category'}= task.category
+                      %td{class: 'author'} task.author
+                      %td{class: 'name'}= task.name
+                      %td{class: 'score'}= task.score
+                      %td{class: 'createdAt'}= task.created_at.to_date
+                      %td
+                        .add-task
+                          .btn.btn-primary.btn-xs= t(:add)
+                    %tr
+                      %td{class: 'clear-p-b-m', colspan: '7'}
+                        .collapse{id: "accordion#{task.id}"}
+                          .col-lg-8.col-md-8.col-sm-8.col-xs-12.task-details
+                            .row
+                              %p= "Description: #{task.description}"
+                            .row
+                              %p{class: 'clear-p-b-m'}= 'Correct solutions:'
+                              - task.correct_solutions.each_with_index do |solution, index|
+                                %p{class: 'clear-p-b-m'}= "#{index + 1} : #{solution} \n"
+                            .row
+                              %p{class: 'clear-p-b-m'}= 'Wrong solutions:'
+                              - task.wrong_solutions.each_with_index do |solution, index|
+                                %p{class: 'clear-p-b-m'}= "#{index + 1} : #{solution} \n"
+                          .col-lg-4.col-md-4.col-sm-4.col-xs-12
+                            .row
+                              %img{src: "#{task.asset}", class: 'img-responsive', alt: 'No image'}
+                            .row.row-p-t
+                              = link_to t(:btn_edit), '#', class: 'btn btn-xs btn-primary pull-right'
+          .btn-group.btn-group-justified.hidden-xs
+            .btn-group
+              = f.submit t(:btn_create_new_quiz), class: 'btn btn-lg btn-primary btn-toolbar'
+            .btn-group
+              = link_to t(:btn_cancel), '#', class: 'btn btn-lg btn-primary btn-toolbar'
+          .btn-group-vertical.visible-xs
+            = f.submit t(:btn_create_new_quiz), class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_cancel), '#', class: 'btn btn-lg btn-primary'
