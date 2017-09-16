@@ -1,4 +1,5 @@
 %header{class: 'navbar navbar-static-top navbar-inverse'}
   .container
-    - if signed_in?
-      = link_to user_alias, interface_path, id: 'user-link'
+    =link_to interface_path, class: 'btn', id: 'interface-link' do
+      %p{class: 'd-inline'}= 'Profile'
+      %i{class: 'material-icons text-muted'} subject
