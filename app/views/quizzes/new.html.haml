@@ -81,11 +81,11 @@
                             .row
                               %p{class: 'clear-p-b-m'}= 'Correct solutions:'
                               - task.correct_solutions.each_with_index do |solution, index|
-                                %p{class: 'clear-p-b-m'}= "#{index + 1} : #{solution} \n"
+                                %p{class: 'clear-p-b-m'}= "#{index + 1}. #{solution} \n"
                             .row
                               %p{class: 'clear-p-b-m'}= 'Wrong solutions:'
                               - task.wrong_solutions.each_with_index do |solution, index|
-                                %p{class: 'clear-p-b-m'}= "#{index + 1} : #{solution} \n"
+                                %p{class: 'clear-p-b-m'}= "#{index + 1}. #{solution} \n"
                           .col-lg-4.col-md-4.col-sm-4.col-xs-12
                             .row
                               %img{src: "#{task.asset}", class: 'img-responsive', alt: 'No image'}
