@@ -4,13 +4,13 @@ require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
   def setup
+    @user = users(:john)
     @task = Task.new(name: 'Apples', task_type: 'Close-ended', category: 'test',
                      description: 'Are apples blue?',
                      correct_solutions: %w[no nope false],
                      wrong_solutions: %w[yes definitely true], score: 1,
-                     deleted: false, mathjax: false, random: true,
-                     no_random_solutions: 4, min_no_random_correct_solutions: 1,
-                     user_id: '1')
+                     mathjax: false, random: true, no_random_solutions: 4,
+                     min_no_random_correct_solutions: 1, author: @user)
   end
 
   test 'should validate task' do
@@ -32,14 +32,14 @@ class TaskTest < ActiveSupport::TestCase
     refute @task.valid?
   end
 
-  test 'should not validate empty author' do
-    @task.user_id = ''
-    refute @task.valid?
-  end
-
   test 'should not validate empty solutions' do
     @task.correct_solutions = []
     @task.wrong_solutions = []
+    refute @task.valid?
+  end
+
+  test 'should not validate empty author' do
+    @task.author_id = nil
     refute @task.valid?
   end
 

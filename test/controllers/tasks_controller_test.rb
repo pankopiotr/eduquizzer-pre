@@ -23,8 +23,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
                                      wrong_solutions: %w[yes definitely],
                                      score: 1, mathjax: false, random: true,
                                      no_random_solutions: 4,
-                                     min_no_random_correct_solutions: 1,
-                                     user_id: 1 } }
+                                     min_no_random_correct_solutions: 1 } }
     assert Task.find_by(name: 'Apples')
   end
 end

@@ -2,6 +2,7 @@
 
 class TasksController < ApplicationController
   include TaskExtension
+  include Session
 
   def new
     @task = Task.new
@@ -9,7 +10,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.user_id = helpers.current_user.id
+    @task.add_author(current_user)
     if @task.save
       flash[:success] = t(:task_created)
       redirect_to new_task_path

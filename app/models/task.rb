@@ -2,13 +2,17 @@
 
 class Task < ApplicationRecord
   TASK_TYPES_LIST = %w[Close-ended Semi-open].freeze
-  belongs_to :user
+  belongs_to :author, class_name: 'User'
   before_validation :clean_random_options
   validates :name, uniqueness: true
-  validates :task_type, :score, :name, :user_id, presence: true
+  validates :task_type, :score, :name, :author_id, presence: true
   validate :present_solutions, :random_solutions_check,
            :correct_random_solutions_check, :correct_task_type
   mount_uploader :asset, AssetUploader
+
+  def add_author(user)
+    self.author = user
+  end
 
   private
 
