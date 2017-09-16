@@ -14,5 +14,6 @@ end
               category: 'Seeds', asset: File.open('public/uploads/task/asset/2/a9537c16-7ce1-4c78-af4b-9a9d79221309.png'),
               correct_solutions: ['First correct answer', 'Second correct answer'],
               wrong_solutions: ['First wrong solution', 'Second wrong solution'],
-              score: index, author: @admin)
+              score: index, author: @admin, no_random_solutions: rand(4),
+              min_no_random_correct_solutions: rand(2))
 end
