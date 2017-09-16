@@ -36,7 +36,7 @@
           - if params[:quiz]
             .hidden{id: 'saved-tasks', data: {saved_tasks: params[:quiz][:tasks]}}
           .row.row-p-t
-            .table-responsive
+            .table-responsive.table-limit
               %table{class: 'table table-hover table-limit'}
                 %caption= t(:par_quiz_tasks)
                 %thead{class: 'thead-default'}
@@ -48,7 +48,7 @@
                     %th{class: 'text-center'}= t(:par_score)
                     %th{class: 'text-center'}= t(:par_created_at)
                 %tbody{id: 'chosen-tasks'}
-          .row
+          .row.row-p-t
             .table-responsive.table-limit
               %table{class: 'table table-hover'}
                 %caption= t(:all_tasks)

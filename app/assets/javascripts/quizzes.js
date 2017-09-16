@@ -9,6 +9,13 @@ $(function() {
 });
 
 $(document).on('turbolinks:load', function() {
+  limitTable();
+
+  function limitTable() {
+    const tableHeight = $('tr').height() * 8;
+    $('.table-limit').css('max-height', tableHeight);
+  }
+
   if ($('#randomize_quiz').prop('checked')) {
     const container = $('#randomize');
     container.removeClass('hidden');
