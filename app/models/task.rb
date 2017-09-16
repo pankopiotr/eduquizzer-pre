@@ -4,6 +4,7 @@ class Task < ApplicationRecord
   TASK_TYPES_LIST = %w[Close-ended Semi-open].freeze
   belongs_to :author, class_name: 'User'
   before_validation :clean_random_options
+  before_save :drop_empty_solutions
   validates :name, uniqueness: true
   validates :task_type, :score, :name, :author_id, presence: true
   validate :present_solutions, :random_solutions_check,
@@ -56,5 +57,10 @@ class Task < ApplicationRecord
     def correct_task_type
       return if TASK_TYPES_LIST.include? task_type
       errors.add(:task_type, :invalid_task_type)
+    end
+
+    def drop_empty_solutions
+      correct_solutions.delete_if(&:blank?)
+      wrong_solutions.delete_if(&:blank?)
     end
 end

@@ -101,4 +101,14 @@ class TaskTest < ActiveSupport::TestCase
     assert_nil Task.find_by(name: 'Apples').no_random_solutions
     assert_nil Task.find_by(name: 'Apples').min_no_random_correct_solutions
   end
+
+  test 'should drop blank solutions' do
+    assert_equal 3, @task.correct_solutions.count
+    assert_equal 3, @task.wrong_solutions.count
+    @task.correct_solutions.push(' ')
+    @task.wrong_solutions.push(' ')
+    @task.save
+    assert_equal 3, @task.correct_solutions.count
+    assert_equal 3, @task.wrong_solutions.count
+  end
 end
