@@ -79,19 +79,19 @@
                         .collapse{id: "accordion#{task.id}"}
                           .col-lg-8.col-md-8.col-sm-8.col-xs-12.task-details
                             .row
-                              %p= "Description: #{task.description}"
+                              %p= "#{t(:par_description)}:   #{task.description}"
                             .row
-                              %p{class: 'clear-p-b-m'}= 'Correct solutions:'
+                              %p{class: 'clear-p-b-m'}= "#{t(:par_correct_solutions)}:"
                               - task.correct_solutions.each_with_index do |solution, index|
                                 %p{class: 'clear-p-b-m'}= "#{index + 1}. #{solution} \n"
                             .row
-                              %p{class: 'clear-p-b-m'}= 'Wrong solutions:'
+                              %p{class: 'clear-p-b-m'}= "#{t(:par_wrong_solutions)}:"
                               - task.wrong_solutions.each_with_index do |solution, index|
                                 %p{class: 'clear-p-b-m'}= "#{index + 1}. #{solution} \n"
                             - if task.random?
                               .row
-                                %p{class: 'clear-p-b-m'}= "Number of random solutions: #{task.no_random_solutions}"
-                                %p{class: 'clear-p-b-m'}= "Minimal number of corrrect solutions: #{task.min_no_random_correct_solutions}"
+                                %p{class: 'clear-p-b-m'}= "#{t(:par_number_of_solutions)}: #{task.no_random_solutions}"
+                                %p{class: 'clear-p-b-m'}= "#{t(:par_min_number_of_correct_solutions)}: #{task.min_no_random_correct_solutions}"
                           .col-lg-4.col-md-4.col-sm-4.col-xs-12
                             .row
                               %img{src: "#{task.asset}", class: 'img-responsive', alt: 'No image'}
