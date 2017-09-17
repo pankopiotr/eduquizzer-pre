@@ -3,12 +3,12 @@
     .filter-box
       = label_tag :id, t(:par_id)
       = text_field_tag 'filter[id]', nil, class: 'form-control'
-      = label_tag t(:par_name)
-      = text_field_tag 'filter[name]', nil, class: 'form-control'
-      = label_tag t(:par_author)
-      = text_field_tag 'filter[author]', nil, class: 'form-control'
       = label_tag t(:par_category)
       = text_field_tag 'filter[category]', nil, class: 'form-control'
+      = label_tag t(:par_author)
+      = text_field_tag 'filter[author]', nil, class: 'form-control'
+      = label_tag t(:par_name)
+      = text_field_tag 'filter[name]', nil, class: 'form-control'
       = label_tag t(:par_score)
       = text_field_tag 'filter[score]', nil, class: 'form-control'
       = check_box_tag  'filterQuizTasks'
