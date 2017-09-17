@@ -67,7 +67,7 @@
                     %tr{class: 'cursor-pointer', 'data-toggle': 'collapse', 'data-target': "#accordion#{task.id}"}
                       %td{class: 'id'}= task.id
                       %td{class: 'category'}= task.category
-                      %td{class: 'author'}= task.author.last_name + ' ' + task.author.first_name
+                      %td{class: 'author'}= author_alias(task)
                       %td{class: 'name'}= task.name
                       %td{class: 'score'}= task.score
                       %td{class: 'createdAt'}= task.created_at.to_date
