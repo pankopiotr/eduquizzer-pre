@@ -154,4 +154,4 @@ en:
   activate_welcome: "Welcome to Eduquizzer"
   activate_body: "Please access the link below to activate your account."
   click_to_reset: "Click link below to reset password."
-  reset_link_expire: "This link will expire in two hours."
+  reset_link_expire: "This link will expire in an hour."
