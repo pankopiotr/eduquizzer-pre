@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include ApplicationExtension
   include Session
   helper_method :signed_in?, :current_user
   protect_from_forgery with: :exception
@@ -14,4 +13,18 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
+
+  private
+
+    def signed_in_user?
+      return if signed_in?
+      flash[:danger] = t(:signin_first)
+      redirect_to root_url
+    end
+
+    def admin_user?
+      return if current_user&.admin?
+      flash[:danger] = t(:access_denied)
+      redirect_to(root_url)
+    end
 end

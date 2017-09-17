@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  include CategoryExtension
-
   def new
     @category = Category.new
   end
@@ -18,4 +16,10 @@ class CategoriesController < ApplicationController
     flash.now[:success] = t(:category_deleted) if @category&.destroy
     render 'new'
   end
+
+  private
+
+    def category_required_params
+      params.require(:category).permit(:name)
+    end
 end

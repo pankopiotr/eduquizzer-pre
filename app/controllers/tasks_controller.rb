@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  include TaskExtension
   include Session
 
   def new
@@ -18,4 +17,14 @@ class TasksController < ApplicationController
       render 'new'
     end
   end
+
+  private
+
+    def task_params
+      params.require(:task).permit(:name, :task_type, :category, :description,
+                                   :asset, :score, :mathjax, :random,
+                                   :no_random_solutions,
+                                   :min_no_random_correct_solutions,
+                                   correct_solutions: [], wrong_solutions: [])
+    end
 end
