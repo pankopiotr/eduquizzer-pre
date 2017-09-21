@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AccountActivationsController < ApplicationController
-  include CreateSession
   skip_before_action :signed_in_user?, :admin_user?
 
   def edit

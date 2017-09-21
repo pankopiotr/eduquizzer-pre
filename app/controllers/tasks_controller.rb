@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  include Session
-
   def new
     @task = Task.new
   end

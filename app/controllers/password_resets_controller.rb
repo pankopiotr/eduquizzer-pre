@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class PasswordResetsController < ApplicationController
-  include CreateSession
   skip_before_action :signed_in_user?, :admin_user?
   before_action :find_user, only: %i[edit update]
   before_action :valid_user, only: %i[edit update]

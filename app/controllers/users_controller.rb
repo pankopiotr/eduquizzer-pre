@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  include CreateSession
   include GenerateDigest
   before_action :nil_optional_attributes?, only: %i[new_optional
                                                     create_optional]
