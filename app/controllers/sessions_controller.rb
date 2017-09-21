@@ -11,12 +11,9 @@ class SessionsController < ApplicationController
   def create
     if @user&.active? && authenticated?(params[:session][:password])
       if @user.activated?
-        sign_in @user
-        remember @user
-        redirect_to interface_path
+        complete_sign_in(@user, interface_path)
       else
-        flash[:warning] = t(:account_not_activated)
-        redirect_to root_url
+        redirect_to root_url, flash: { warning: t(:account_not_activated) }
       end
     else
       flash.now[:danger] = t(:wrong_credentials)

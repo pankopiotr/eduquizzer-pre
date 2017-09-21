@@ -15,8 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_required_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = 'Please check your email to activate your account.'
-      redirect_to root_url
+      redirect_to root_url, flash: { info: t(:please_check_email) }
     else
       render 'new'
     end
@@ -30,8 +29,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     if @user.update_attributes(user_optional_params)
       @user.update_attributes(active: true)
-      flash[:success] = t(:full_registration_completed)
-      redirect_to interface_path
+      redirect_to interface_path, flash: { success: t(:full_registration_completed) }
     else
       render 'new_optional'
     end
@@ -52,7 +50,6 @@ class UsersController < ApplicationController
 
     def nil_optional_attributes?
       return if current_user.student_id.nil?
-      flash[:danger] = t(:completed_optional_once)
-      redirect_to interface_path
+      redirect_to interface_path, flash: { danger: t(:completed_optional_once) }
     end
 end

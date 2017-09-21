@@ -33,14 +33,12 @@ class ApplicationController < ActionController::Base
 
     def signed_in_user?
       return if signed_in?
-      flash[:danger] = t(:signin_first)
-      redirect_to root_url
+      redirect_to root_url, flash: { danger: t(:signin_first) }
     end
 
     def admin_user?
       return if current_user&.admin?
-      flash[:danger] = t(:access_denied)
-      redirect_to(root_url)
+      redirect_to root_url, flash: { danger: t(:access_denied) }
     end
 
     def sign_in(user)
@@ -55,5 +53,13 @@ class ApplicationController < ActionController::Base
       user.remember
       cookies.permanent.signed[:user_id] = user.id
       cookies.permanent[:remember_token] = user.remember_token
+    end
+
+    # Isn't that too much?
+    def complete_sign_in(user, redirect_path, message = nil)
+      sign_in user
+      remember user
+      flash[:success] = message unless message.nil?
+      redirect_to redirect_path
     end
 end

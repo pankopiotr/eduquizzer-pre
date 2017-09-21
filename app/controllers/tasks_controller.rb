@@ -9,8 +9,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.add_author(current_user)
     if @task.save
-      flash[:success] = t(:task_created)
-      redirect_to new_task_path
+      redirect_to new_task_path, flash: { success: t(:task_created) }
     else
       render 'new'
     end

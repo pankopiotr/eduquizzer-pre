@@ -2,9 +2,7 @@
 
 class PasswordResetsController < ApplicationController
   skip_before_action :signed_in_user?, :admin_user?
-  before_action :find_user, only: %i[edit update]
-  before_action :valid_user, only: %i[edit update]
-  before_action :check_expiration, only: %i[edit update]
+  before_action :find_user, :valid_user, :check_expiration, only: %i[edit update]
 
   def new
   end
@@ -13,8 +11,7 @@ class PasswordResetsController < ApplicationController
     if (@user = User.find_by(email: params[:password_reset][:email].downcase))
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = t(:password_reset_sent)
-      redirect_to root_url
+      redirect_to root_url, flash: { info: t(:password_reset_sent) }
     else
       flash.now[:danger] = t(:email_not_found)
       render 'new'
@@ -28,9 +25,7 @@ class PasswordResetsController < ApplicationController
     @user.updating_password = true
     if @user.update_attributes(user_params)
       @user.clear_password_reset
-      sign_in @user
-      flash[:success] = t(:password_successfully_reset)
-      redirect_to interface_path
+      complete_sign_in(@user, interface_path, t(:password_successfully_reset))
     else
       render 'edit'
     end
@@ -47,9 +42,9 @@ class PasswordResetsController < ApplicationController
     end
 
     def valid_user
-      return if @user&.activated? && @user.active && password_recovered?(params[:reset_token])
-      flash[:danger] = t(:invalid_or_inactive_user)
-      redirect_to root_url
+      return if @user&.activated? && @user.active &&
+                password_recovered?(params[:reset_token])
+      redirect_to root_url, flash: { danger: t(:invalid_or_inactive_user) }
     end
 
     def password_recovered?(token)
@@ -59,7 +54,6 @@ class PasswordResetsController < ApplicationController
 
     def check_expiration
       return unless @user.password_reset_expired?
-      flash[:danger] = t(:reset_link_expired)
-      redirect_to root_url
+      redirect_to root_url, flash: { danger: t(:reset_link_expired) }
     end
 end
