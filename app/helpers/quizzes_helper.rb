@@ -8,4 +8,9 @@ module QuizzesHelper
       task.author.email.split('@')[0]
     end
   end
+
+  def show_filter
+    params[:controller] == 'quizzes' && (params[:action] == 'new' ||
+        params[:action] == 'create')
+  end
 end

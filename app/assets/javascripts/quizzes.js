@@ -64,7 +64,7 @@ quiz = {
     $('.filter-box').css({'flex-grow': '0', 'padding-left': 0, 'padding-right': 0});
     // Remember chosen tasks on validation error
     if (typeof savedTasks !== 'undefined') {
-      $.each(savedTasks, quiz.filterTasks(value));
+      $.each(savedTasks, quiz.moveToChosenTasksTable);
     }
     // Remember check on validation error
     if ($('#randomize_quiz').prop('checked')) {
