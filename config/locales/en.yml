@@ -69,6 +69,7 @@ en:
   invalid_or_inactive_user: "Invalid or inactive user"
   filter_quiz_tasks: "Filter Quiz tasks as well"
   please_check_email: "Please check your email to activate your account"
+  quiz_created: "Quiz has been created"
 
   # Page titles
   create_task: "Create new task"
