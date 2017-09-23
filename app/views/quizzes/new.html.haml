@@ -35,7 +35,7 @@
           .hidden{id: 'remove_translated', data: {remove: t(:remove)}}
           .hidden{id: 'add_translated', data: {add: t(:add)}}
           - if params[:quiz]
-            .hidden{id: 'saved-tasks', data: {saved_tasks: params[:quiz][:tasks]}}
+            .hidden{id: 'saved-tasks', data: {saved_tasks: params[:quiz][:task_list]}}
           .row.row-p-t
             .table-responsive.table-limit
               %table{class: 'table table-hover table-limit'}

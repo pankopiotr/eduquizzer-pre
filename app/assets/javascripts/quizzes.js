@@ -92,10 +92,14 @@ quiz = {
   },
 
   moveToChosenTasksTable: function() {
+    let $div = $(this);
+    if (!isNaN(Number($div[0]))) {
+      $div = $('tr[data-target="#accordion' + $div[0] + '"]').find('.add-task');
+    }
     const removeTranslated = $('#remove_translated').data('remove');
-    $(this).removeClass('add-task').empty().addClass('remove-task');
-    const row = $(this).closest('tr').clone();
-    $(this).closest('tr').remove();
+    $div.removeClass('add-task').empty().addClass('remove-task');
+    const row = $div.closest('tr').clone();
+    $div.closest('tr').remove();
     row.appendTo('#chosen-tasks');
     const content = $('<div><div>').addClass('btn btn-danger btn-xs').text(removeTranslated);
     const id = row.children().first().text();
