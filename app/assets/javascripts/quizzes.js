@@ -100,7 +100,7 @@ quiz = {
     const content = $('<div><div>').addClass('btn btn-danger btn-xs').text(removeTranslated);
     const id = row.children().first().text();
     const $accordion = $('#accordion'+ id).closest('tr');
-    const hiddenInput = $('<input name="quiz[tasks_id_list][]">').addClass('hidden form-control').val(id);
+    const hiddenInput = $('<input name="quiz[task_list][]">').addClass('hidden form-control').val(id);
     hiddenInput.appendTo(content);
     content.appendTo($('.remove-task').last());
     $accordion.appendTo($('#chosen-tasks').last());
