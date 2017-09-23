@@ -34,4 +34,22 @@ class QuizTest < ActiveSupport::TestCase
     @quiz.save
     assert_equal 2, Quiz.find_by(name: 'TestTask').tasks.count
   end
+
+  test 'should not validate duplicated name' do
+    @dup_quiz_name = Quiz.new(name: 'TestTask', password: 'different_password',
+                              task_list: [1, 2], random: true,
+                              no_random_tasks: 1, time_limit: 15, author: @user)
+    @quiz.save
+    refute @dup_quiz_name.valid?
+  end
+
+  test 'should not validate duplicated password' do
+    @dup_quiz_password = Quiz.new(name: 'Different name',
+                                  password: '0123456789abcdef',
+                                  task_list: [1, 2], random: true,
+                                  no_random_tasks: 1, time_limit: 15,
+                                  author: @user)
+    @quiz.save
+    refute @dup_quiz_password.valid?
+  end
 end
