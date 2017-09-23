@@ -2,14 +2,14 @@
 
 class User < ApplicationRecord
   include GenerateDigest
-  has_many :tasks
+  has_many :tasks, foreign_key: 'author_id'
   has_many :quizzes
   attr_accessor :remember_token, :updating_password, :password,
                 :activation_token, :reset_token
-  validates :email,      presence: true, length: { maximum: 64 },
-                         uniqueness: { case_sensitive: false }, email: true
-  validates :password,   presence: true, length: { in: 8..64 },
-                         if: :should_validate_password?
+  validates :email, presence: true, length: { maximum: 64 },
+                    uniqueness: { case_sensitive: false }, email: true
+  validates :password, presence: true, length: { in: 8..64 },
+                       if: :should_validate_password?
   validates :first_name, length: { in: 2..16 }, allow_blank: true
   validates :last_name,  length: { in: 2..32 }, allow_blank: true
   validates :student_id, length: { in: 5..6 }, allow_blank: true,
