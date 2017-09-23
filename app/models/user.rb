@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   include GenerateDigest
   has_many :tasks
+  has_many :quizzes
   attr_accessor :remember_token, :updating_password, :password,
                 :activation_token, :reset_token
   validates :email,      presence: true, length: { maximum: 64 },

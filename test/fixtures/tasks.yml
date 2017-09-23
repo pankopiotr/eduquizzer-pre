@@ -1,0 +1,37 @@
+task1:
+  name: Red Apples
+  task_type: Close-ended
+  category: test
+  description: Are red apples blue?
+  correct_solutions:
+    - no
+    - nope
+    - false
+  wrong_solutions:
+    - yes
+    - definitely
+    - true
+  score: 1
+  mathjax: true
+  random: true
+  no_random_solutions: 4
+  min_no_random_correct_solutions: 1
+
+task2:
+  name: Oranges
+  task_type: Close-ended
+  category: test
+  description: Are oranges red?
+  correct_solutions:
+    - no
+    - nope
+    - false
+  wrong_solutions:
+    - yes
+    - definitely
+    - true
+  score: 1
+  mathjax: true
+  random: true
+  no_random_solutions: 4
+  min_no_random_correct_solutions: 1
