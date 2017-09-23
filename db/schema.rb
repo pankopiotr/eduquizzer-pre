@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923101240) do
+ActiveRecord::Schema.define(version: 20170923165638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,21 @@ ActiveRecord::Schema.define(version: 20170923101240) do
   create_table "quizzes", force: :cascade do |t|
     t.string   "name"
     t.string   "password"
-    t.string   "tasks",           default: [],              array: true
     t.boolean  "random"
     t.integer  "no_random_tasks"
     t.boolean  "used"
     t.integer  "time_limit"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "author_id"
     t.index ["author_id"], name: "index_quizzes_on_author_id", using: :btree
+  end
+
+  create_table "quizzes_tasks", id: false, force: :cascade do |t|
+    t.integer "quiz_id"
+    t.integer "task_id"
+    t.index ["quiz_id"], name: "index_quizzes_tasks_on_quiz_id", using: :btree
+    t.index ["task_id"], name: "index_quizzes_tasks_on_task_id", using: :btree
   end
 
   create_table "tasks", force: :cascade do |t|

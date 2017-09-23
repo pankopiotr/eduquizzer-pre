@@ -2,6 +2,7 @@
 
 class Task < ApplicationRecord
   TASK_TYPES_LIST = %w[Close-ended Semi-open].freeze
+  has_and_belongs_to_many :quizzes
   belongs_to :author, class_name: 'User'
   before_validation :clean_random_options
   before_save :drop_empty_solutions

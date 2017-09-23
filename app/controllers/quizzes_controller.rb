@@ -21,7 +21,7 @@ class QuizzesController < ApplicationController
 
     def test_params
       params.require(:quiz).permit(:name, :password, :random, :no_random_tasks,
-                                   :time_limit, tasks: [])
+                                   :time_limit, task_list: [])
     end
 
     def instantiate_task_list
