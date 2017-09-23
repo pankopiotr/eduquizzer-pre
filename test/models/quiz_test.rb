@@ -5,7 +5,7 @@ require 'test_helper'
 class QuizTest < ActiveSupport::TestCase
   def setup
     @user = users(:john)
-    @tasks = [tasks(:task1), tasks(:task2)]
+    @tasks = [tasks(:taskApples), tasks(:taskOranges)]
     @quiz = Quiz.new(name: 'TestTask', password: '0123456789abcdef',
                      tasks: @tasks, random: true, no_random_tasks: 1,
                      time_limit: 15, author: @user)
