@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post '/register', to: 'users#create'
     get '/register_optional', to: 'users#new_optional'
     post '/register_optional', to: 'users#create_optional'
+    get '/users', to: 'users#index'
     get '/signin', to: 'sessions#new'
     post '/signin', to: 'sessions#create'
     get '/signout', to: 'sessions#destroy'

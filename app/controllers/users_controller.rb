@@ -38,6 +38,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def index
+    @users = User.all
+  end
+
   private
 
     def user_required_params

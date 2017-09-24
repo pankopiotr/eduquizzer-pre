@@ -87,6 +87,7 @@ en:
   edit_task: "Edit task"
   quiz_list: "List of quizzes"
   task_list: "List of tasks"
+  user_list: "List of users"
 
   # Parameters
   par_first_name: "First name"

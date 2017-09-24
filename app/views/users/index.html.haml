@@ -1,0 +1,45 @@
+= provide(:title, t(:user_list))
+.row.center
+  = form_for :quiz, url: quizzes_path do |f|
+    .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+      .text-center
+        = render 'shared/flash'
+        .jumbotron
+          %h2= t(:user_list)
+          = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary btn-toolbar visible-xs mb-20'
+          .row
+            .table-responsive.table-limit
+              %table{class: 'table table-hover table-limit'}
+                %thead
+                  %tr
+                    %th{class: 'text-center'}= t(:par_id)
+                    %th{class: 'text-center'}= t(:par_first_name)
+                    %th{class: 'text-center'}= t(:par_last_name)
+                    %th{class: 'text-center'}= t(:par_student_id)
+                    %th{class: 'text-center'}= t(:par_created_at)
+                %tbody
+                  - @users.each do |user|
+                    %tr{class: 'cursor-pointer', 'data-toggle': 'collapse', 'data-target': "#accordion#{user.id}"}
+                      %td= user.id
+                      %td= user.first_name
+                      %td= user.last_name
+                      %td= user.student_id
+                      %td= user.created_at.to_date
+                    %tr
+                      %td{class: 'clear-p-b-m', colspan: '7'}
+                        .collapse{id: "accordion#{user.id}"}
+                          %table{class: 'table table-hover table-limit clear-margin'}
+                            %thead
+                              %tr
+                                %th{class: 'text-center'}= t(:par_id)
+                                %th{class: 'text-center'}= t(:par_quiz_name)
+                                %th{class: 'text-center'}= t(:par_score)
+                                %th{class: 'text-center'}= t(:par_created_at)
+                            %tbody
+                              - user.attempts.each do |attempt|
+                                %tr
+                                  %td= attempt.id
+                                  %td= attempt.quiz.name
+                                  %td= attempt.score
+                                  %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
+          = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary btn-toolbar hidden-xs'
