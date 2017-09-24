@@ -17,6 +17,10 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def index
+    @quizzes = Quiz.all
+  end
+
   private
 
     def test_params

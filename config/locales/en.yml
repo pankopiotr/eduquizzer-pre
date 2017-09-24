@@ -84,6 +84,7 @@ en:
   recover_password: "Recover password"
   create_quiz: "Create new quiz"
   edit_task: "Edit task"
+  quiz_list: "List of quizzes"
 
   # Parameters
   par_first_name: "First name"
