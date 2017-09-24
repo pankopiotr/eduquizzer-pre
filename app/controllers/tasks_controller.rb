@@ -17,6 +17,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def index
+    @tasks = Task.all
+  end
+
   def edit
   end
 
