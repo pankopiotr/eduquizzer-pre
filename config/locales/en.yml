@@ -145,7 +145,7 @@ en:
   btn_create_quiz: "Create quiz"
   btn_create_task: "Create task"
   btn_archive: "Archive"
-  btn_edit_quiz: "Edit quiz"
+  btn_save_changes: "Save changes"
 
   # Tooltips
   tt_task_new_name: "Must be unique."

@@ -104,9 +104,9 @@
                                 .btn.btn-xs.btn-primary.pull-right.disabled= t(:archived)
           .btn-group.btn-group-justified.hidden-xs
             .btn-group
-              = f.submit t(:btn_edit_quiz), class: 'btn btn-lg btn-primary btn-toolbar'
+              = f.submit t(:btn_save_changes), class: 'btn btn-lg btn-primary btn-toolbar'
             .btn-group
               = link_to t(:btn_cancel), quizzes_path, class: 'btn btn-lg btn-primary btn-toolbar'
           .btn-group-vertical.visible-xs
-            = f.submit t(:btn_edit_quiz), class: 'btn btn-lg btn-primary'
+            = f.submit t(:btn_save_changes), class: 'btn btn-lg btn-primary'
             = link_to t(:btn_cancel), quizzes_path, class: 'btn btn-lg btn-primary'
