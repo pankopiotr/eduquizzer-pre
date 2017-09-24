@@ -1,4 +1,5 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
+  // filter and tables requires on load instead of document ready
   quiz.initialize();
 });
 

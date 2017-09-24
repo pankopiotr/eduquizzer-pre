@@ -119,7 +119,6 @@ en:
   btn_sign_out: "Sign Out"
   btn_sign_up: "Sign Up"
   btn_skip: "Skip that step"
-  btn_test_menu: "Test Menu"
   btn_update_additional_info: "Update additional info"
   btn_user_list: "User List"
   btn_add_correct_solution: "Add correct solution"
@@ -136,6 +135,8 @@ en:
   btn_filter: "Filter"
   btn_clear: "Clear"
   btn_edit: "Edit"
+  btn_create_quiz: "Create quiz"
+  btn_create_task: "Create task"
 
   # Tooltips
   tt_task_new_name: "Must be unique."
