@@ -89,6 +89,8 @@ en:
   task_list: "List of tasks"
   user_list: "List of users"
   score_list: "List of user scores"
+  user_interface: "User interface"
+  admin_interface: "Admin interface"
 
   # Parameters
   par_first_name: "First name"
