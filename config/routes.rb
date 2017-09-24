@@ -14,10 +14,11 @@ Rails.application.routes.draw do
     get '/categories/modify', to: 'categories#new'
     post '/categories/modify', to: 'categories#create'
     delete '/categories/modify', to: 'categories#destroy'
-    resources :quizzes, only: %i[new create]
     resources :tasks, only: %i[new create]
+    resources :quizzes, only: %i[new create]
     resources :account_activations, param: :activation_token, only: %i[edit]
     resources :password_resets, param: :reset_token, only: %i[new create
                                                               edit update]
+    resources :attempts, only: %i[new create]
   end
 end
