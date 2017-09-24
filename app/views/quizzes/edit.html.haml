@@ -95,13 +95,6 @@
                           .col-lg-4.col-md-4.col-sm-4.col-xs-12
                             .row
                               %img{src: "#{task.asset}", class: 'img-responsive', alt: 'No image'}
-                              .row.row-p-t
-                              - if editable?(task)
-                                = link_to t(:btn_edit), edit_task_path(task), class: 'btn btn-xs btn-primary pull-right'
-                              - elsif task.used?
-                                .btn.btn-xs.btn-primary.pull-right.disabled= t(:used)
-                              - elsif task.archived?
-                                .btn.btn-xs.btn-primary.pull-right.disabled= t(:archived)
           .btn-group.btn-group-justified.hidden-xs
             .btn-group
               = f.submit t(:btn_save_changes), class: 'btn btn-lg btn-primary btn-toolbar'
