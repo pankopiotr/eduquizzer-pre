@@ -32,6 +32,8 @@ task = {
   initialize: function() {
     const correct_solutions = $('#correct_solutions_params').data('correct-solutions');
     const wrong_solutions = $('#wrong_solutions_params').data('wrong-solutions');
+    console.log(correct_solutions);
+    console.log(wrong_solutions);
 
     // Remember select on validation error
     if (String($('#type_of_task').val()) === 'Close-ended') {

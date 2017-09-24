@@ -43,6 +43,7 @@ en:
   remove: "Remove"
   add: "Add"
   all_tasks: "All tasks"
+  current_image: "Current image"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -70,6 +71,7 @@ en:
   filter_quiz_tasks: "Filter Quiz tasks as well"
   please_check_email: "Please check your email to activate your account"
   quiz_created: "Quiz has been created"
+  task_updated: "Task has been updated"
 
   # Page titles
   create_task: "Create new task"
@@ -79,6 +81,7 @@ en:
   modify_categories: "Modify categories"
   recover_password: "Recover password"
   create_quiz: "Create new quiz"
+  edit_task: "Edit task"
 
   # Parameters
   par_first_name: "First name"
