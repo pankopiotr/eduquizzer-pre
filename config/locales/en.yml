@@ -88,6 +88,7 @@ en:
   quiz_list: "List of quizzes"
   task_list: "List of tasks"
   user_list: "List of users"
+  score_list: "List of user scores"
 
   # Parameters
   par_first_name: "First name"

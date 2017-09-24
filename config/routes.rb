@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     resources :account_activations, param: :activation_token, only: %i[edit]
     resources :password_resets, param: :reset_token, only: %i[new create
                                                               edit update]
-    resources :attempts, only: %i[new create]
+    resources :attempts, only: %i[new create index]
   end
 end

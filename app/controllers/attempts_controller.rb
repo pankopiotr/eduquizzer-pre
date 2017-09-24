@@ -7,4 +7,8 @@ class AttemptsController < ApplicationController
 
   def create
   end
+
+  def index
+    @attempts = Attempt.all
+  end
 end

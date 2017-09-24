@@ -1,0 +1,24 @@
+= provide(:title, t(:score_list))
+.row.center
+  .col-lg-10.col-lg-offset-1.col-md-12.col-sm-12.col-xs-12
+    .text-center
+      .jumbotron
+        %h2= t(:score_list)
+        = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary btn-toolbar visible-xs mb-20'
+        .row
+          .table-responsive.table-limit
+            %table{class: 'table table-hover table-limit'}
+              %thead
+                %tr
+                  %th{class: 'text-center'}= t(:par_id)
+                  %th{class: 'text-center'}= t(:par_quiz_name)
+                  %th{class: 'text-center'}= t(:par_score)
+                  %th{class: 'text-center'}= t(:par_created_at)
+              %tbody
+                - @attempts.each do |attempt|
+                  %tr
+                    %td= attempt.id
+                    %td= attempt.quiz.name
+                    %td= attempt.score
+                    %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
+        = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary btn-toolbar hidden-xs'
