@@ -17,6 +17,7 @@ class Quiz < ApplicationRecord
 
     def create_tasks_associations
       return unless task_list
+      tasks.delete_all
       task_list.each do |task_id|
         tasks << Task.find_by(id: task_id)
       end

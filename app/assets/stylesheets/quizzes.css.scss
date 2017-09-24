@@ -1,6 +1,7 @@
 .table-limit {
   max-height: 350px;
-  overflow: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 .row-p-t {
@@ -62,8 +63,4 @@
 
 .add-task, .remove-task {
   display: inline-block;
-}
-
-.inner-table {
-  overflow-x: hidden !important;
 }
