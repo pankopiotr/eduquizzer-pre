@@ -6,6 +6,9 @@
         = render 'shared/flash'
         .jumbotron
           %h2= t(:task_list)
+          .btn-group-vertical.visible-xs.mb-20
+            = link_to t(:btn_create_new_task), new_task_path, class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary'
           .row
             .table-responsive.table-limit
               %table{class: 'table table-hover table-limit clear-margin'}
@@ -50,3 +53,8 @@
                           .col-lg-4.col-md-4.col-sm-4.col-xs-12
                             .row
                               %img{src: "#{task.asset}", class: 'img-responsive', alt: 'No image'}
+          .btn-group.btn-group-justified.hidden-xs.mt-20
+            .btn-group
+              = link_to t(:btn_create_new_task), new_task_path, class: 'btn btn-lg btn-primary'
+            .btn-group
+              = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary'

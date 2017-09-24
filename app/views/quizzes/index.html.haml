@@ -6,6 +6,9 @@
         = render 'shared/flash'
         .jumbotron
           %h2= t(:quiz_list)
+          .btn-group-vertical.visible-xs.mb-20
+            = link_to t(:btn_create_new_quiz), new_quiz_path, class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary'
           .row
             .table-responsive
               %table{class: 'table table-bordered table-hover table-limit table-inverse'}
@@ -77,3 +80,8 @@
                                             .btn.btn-xs.btn-primary.pull-right.disabled= t(:used)
                                           - elsif task.archived?
                                             .btn.btn-xs.btn-primary.pull-right.disabled= t(:archived)
+          .btn-group.btn-group-justified.hidden-xs.mt-20
+            .btn-group
+              = link_to t(:btn_create_new_quiz), new_quiz_path, class: 'btn btn-lg btn-primary'
+            .btn-group
+              = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary'

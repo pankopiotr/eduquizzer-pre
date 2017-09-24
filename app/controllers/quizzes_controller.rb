@@ -12,7 +12,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.add_author(current_user)
     if @quiz.save
-      redirect_to new_quiz_path, flash: { success: t(:quiz_created) }
+      redirect_to quizzes_path, flash: { success: t(:quiz_created) }
     else
       render 'new'
     end

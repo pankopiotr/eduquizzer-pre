@@ -7,8 +7,8 @@
         %h2= t(:user_interface)
         .btn-group-vertical
           - if current_user.admin?
-            = link_to t(:btn_create_quiz), new_quiz_path, class: 'btn btn-lg btn-primary'
-            = link_to t(:btn_create_task), new_task_path, class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_view_quizzes), quizzes_path, class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_view_tasks), tasks_path, class: 'btn btn-lg btn-primary'
             = link_to t(:btn_user_list), '#', class: 'btn btn-lg btn-primary'
           - else
             = link_to t(:btn_enter_quiz), '#', class: 'btn btn-lg btn-primary'

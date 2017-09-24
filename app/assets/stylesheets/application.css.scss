@@ -30,3 +30,33 @@
 textarea {
   resize: vertical;
 }
+
+.table-limit {
+  max-height: 350px;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.row-p-t {
+  padding-top: 20px !important;
+}
+
+.clear-padding {
+  padding: 0 !important;
+}
+
+.clear-margin {
+  margin: 0 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.mt-20 {
+  margin-top: 20px !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}

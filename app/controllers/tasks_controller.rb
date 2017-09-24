@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.add_author(current_user)
     if @task.save
-      redirect_to new_task_path, flash: { success: t(:task_created) }
+      redirect_to tasks_path, flash: { success: t(:task_created) }
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update_attributes(task_params)
-      redirect_to new_quiz_path, flash: { success: t(:task_updated) }
+      redirect_to tasks_path, flash: { success: t(:task_updated) }
     else
       render 'edit'
     end

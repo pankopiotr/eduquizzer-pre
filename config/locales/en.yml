@@ -147,6 +147,8 @@ en:
   btn_create_task: "Create task"
   btn_archive: "Archive"
   btn_save_changes: "Save changes"
+  btn_view_quizzes: "View quizzes"
+  btn_view_tasks: "View tasks"
 
   # Tooltips
   tt_task_new_name: "Must be unique."
