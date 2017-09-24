@@ -4,6 +4,7 @@ class User < ApplicationRecord
   include GenerateDigest
   has_many :tasks, foreign_key: 'author_id'
   has_many :quizzes, foreign_key: 'author_id'
+  has_many :attempts
   attr_accessor :remember_token, :updating_password, :password,
                 :activation_token, :reset_token
   validates :email, presence: true, length: { maximum: 64 },
