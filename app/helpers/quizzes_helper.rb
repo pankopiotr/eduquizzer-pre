@@ -13,4 +13,8 @@ module QuizzesHelper
     params[:controller] == 'quizzes' && (params[:action] == 'new' ||
         params[:action] == 'create')
   end
+
+  def editable?(item)
+    !item.used && !item.archived
+  end
 end
