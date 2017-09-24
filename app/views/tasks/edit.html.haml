@@ -14,7 +14,7 @@
               = f.text_field 'name', value: @task.name, maxlength: 255, class: 'form-control'
 
               = f.label t(:par_category)
-              = f.collection_select 'category', Category.order(:name), :name, :name, {include_blank: true}, {value_for_collection: Category.find_by(name: @task.category).id, class: 'form-control'}
+              = f.collection_select 'category', Category.order(:name), :name, :name, {include_blank: true}, {class: 'form-control'}
               = link_to t(:btn_modify_categories), categories_modify_path, class: 'btn btn-primary btn-block', data: { confirm: t(:changes_lost_proceed) }
 
               = f.label t(:par_task_type)
