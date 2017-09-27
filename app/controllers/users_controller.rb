@@ -36,6 +36,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @attempts = if current_user.admin?
+                  Attempt.order(created_at: :desc).limit(35)
+                else
+                  current_user.attempts.order(created_at: :desc).limit(5)
+                end
   end
 
   def index

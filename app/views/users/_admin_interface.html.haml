@@ -1,0 +1,25 @@
+.table-responsive.table-limit
+  %table{class: 'table table-hover table-limit'}
+    %thead
+      %tr
+        %th{class: 'text-center'}= t(:par_user_id)
+        %th{class: 'text-center'}= t(:user_name)
+        %th{class: 'text-center'}= t(:par_quiz_name)
+        %th{class: 'text-center'}= t(:par_score)
+        %th{class: 'text-center'}= t(:par_created_at)
+    %tbody
+      - @attempts.each do |attempt|
+        %tr
+          %td= attempt.user_id
+          %td= user_alias(attempt.user)
+          %td= attempt.quiz.name
+          %td= attempt.score
+          %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
+.btn-group-vertical
+  = link_to t(:btn_view_quizzes), quizzes_path, class: 'btn btn-lg btn-primary'
+  = link_to t(:btn_view_tasks), tasks_path, class: 'btn btn-lg btn-primary'
+  = link_to t(:btn_user_list), users_path, class: 'btn btn-lg btn-primary'
+  - if optional_registration?
+    = link_to t(:btn_update_additional_info), register_optional_path, class: 'btn btn-lg btn-primary'
+  = link_to t(:btn_score_list), attempts_path, class: 'btn btn-lg btn-primary'
+  = link_to t(:btn_sign_out), signout_path, class: 'btn btn-lg btn-primary'

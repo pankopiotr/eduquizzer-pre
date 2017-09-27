@@ -46,6 +46,7 @@ en:
   current_image: "Current image"
   used: "Used"
   archived: "Archived"
+  user_name: "User alias"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -119,6 +120,7 @@ en:
   par_author: "Author"
   par_created_at: "Created at"
   par_quiz_tasks: "Quiz tasks"
+  par_user_id: "User ID"
 
   # Buttons
   btn_back: "Back"
