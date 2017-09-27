@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get '/categories/modify', to: 'categories#new'
     post '/categories/modify', to: 'categories#create'
     delete '/categories/modify', to: 'categories#destroy'
+    post '/password_check', to: 'attempts#password_check'
     resources :tasks, only: %i[new create index edit update]
     resources :quizzes, only: %i[new create index edit update]
     resources :account_activations, param: :activation_token, only: %i[edit]

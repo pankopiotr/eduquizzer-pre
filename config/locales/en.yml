@@ -47,6 +47,7 @@ en:
   used: "Used"
   archived: "Archived"
   user_name: "User alias"
+  quiz_password: "Quiz password"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -76,6 +77,8 @@ en:
   quiz_created: "Quiz has been created"
   task_updated: "Task has been updated"
   quiz_updated: "Quiz has been updated"
+  wrong_quiz_password: "Wrong quiz password"
+  correct_quiz_password: "You're in! Good luck!"
 
   # Page titles
   create_task: "Create new task"
