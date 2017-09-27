@@ -16,7 +16,7 @@ class AttemptsController < ApplicationController
 
   def password_check
     if (quiz = Quiz.find_by(password: params[:attempt][:password]))
-      @attempt = Attempt.create(user: current_user, quiz: quiz)
+      @attempt = Attempt.create(user: current_user, quiz: quiz, score: -9999)
       redirect_to new_attempt_path, flash: { success: t(:correct_quiz_password) }
     else
       redirect_to interface_path, flash: { danger: t(:wrong_quiz_password) }
