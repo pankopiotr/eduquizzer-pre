@@ -13,6 +13,13 @@ class Quiz < ApplicationRecord
     self.author = user
   end
 
+  def mark_as_used
+    return if used
+    update_attribute(:used, true)
+    return unless tasks
+    tasks.update_all(used: true)
+  end
+
   private
 
     def create_tasks_associations
