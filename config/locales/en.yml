@@ -79,6 +79,8 @@ en:
   quiz_updated: "Quiz has been updated"
   wrong_quiz_password: "Wrong quiz password"
   correct_quiz_password: "You're in! Good luck!"
+  cannot_edit_task: "This task cannot be edited"
+  cannot_edit_quiz: "This quiz cannot be edited"
 
   # Page titles
   create_task: "Create new task"

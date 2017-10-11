@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :find_task, only: %i[edit update]
+  before_action :find_editable_task, only: %i[edit update]
 
   def new
     @task = Task.new
@@ -42,7 +42,9 @@ class TasksController < ApplicationController
                                    correct_solutions: [], wrong_solutions: [])
     end
 
-    def find_task
+    def find_editable_task
       @task = Task.find_by(id: params[:id])
+      return if editable?(@task)
+      redirect_to tasks_path, flash: { danger: t(:cannot_edit_task) }
     end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :signed_in?, :current_user
+  helper_method :signed_in?, :current_user, :editable?
   protect_from_forgery with: :exception
   before_action :set_locale, :signed_in_user?, :admin_user?
 
@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
         @current_user = user
       end
     end
+  end
+
+  def editable?(item)
+    !item.used && !item.archived
   end
 
   private

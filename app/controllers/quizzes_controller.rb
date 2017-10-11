@@ -2,7 +2,7 @@
 
 class QuizzesController < ApplicationController
   before_action :instantiate_task_list
-  before_action :find_quiz, only: %i[edit update]
+  before_action :find_editable_quiz, only: %i[edit update]
 
   def new
     @quiz = Quiz.new
@@ -44,7 +44,9 @@ class QuizzesController < ApplicationController
       @tasks = Task.all
     end
 
-    def find_quiz
+    def find_editable_quiz
       @quiz = Quiz.find_by(id: params[:id])
+      return if editable?(@quiz)
+      redirect_to quizzes_path, flash: { danger: t(:cannot_edit_quiz) }
     end
 end
