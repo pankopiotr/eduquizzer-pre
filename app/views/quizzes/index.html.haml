@@ -29,11 +29,11 @@
                     %td= quiz.created_at.to_date
                     %td
                       - if editable?(quiz)
-                        = link_to t(:btn_edit), edit_quiz_path(quiz), class: 'btn btn-xs btn-primary'
+                        = link_to t(:btn_edit), edit_quiz_path(quiz), class: 'btn btn-xs btn-primary stop-propagation'
                       - elsif quiz.archived?
-                        .btn.btn-xs.btn-danger.disabled= t(:archived)
+                        .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:archived)
                       - elsif quiz.used?
-                        .btn.btn-xs.btn-danger.disabled= t(:used)
+                        .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:used)
                   %tr
                     %td{class: 'clear-p-b-m', colspan: '6'}
                       .collapse.table-responsive.table-limit{id: "accordion_quiz#{quiz.id}"}

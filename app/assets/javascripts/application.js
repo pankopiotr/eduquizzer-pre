@@ -16,3 +16,9 @@
 //= require cookies_eu
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('.stop-propagation').on('click', function(event) {
+    event.stopPropagation();
+  });
+});

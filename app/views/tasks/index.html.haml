@@ -31,11 +31,11 @@
                     %td= task.created_at.to_date
                     %td
                       - if editable?(task)
-                        = link_to t(:btn_edit), edit_task_path(task), class: 'btn btn-xs btn-primary'
+                        = link_to t(:btn_edit), edit_task_path(task), class: 'btn btn-xs btn-primary stop-propagation'
                       - elsif task.archived?
-                        .btn.btn-xs.btn-danger.disabled= t(:archived)
+                        .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:archived)
                       - elsif task.used?
-                        .btn.btn-xs.btn-danger.disabled= t(:used)
+                        .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:used)
                   %tr
                     %td{class: 'clear-p-b-m', colspan: '7'}
                       .collapse{id: "accordion#{task.id}"}
