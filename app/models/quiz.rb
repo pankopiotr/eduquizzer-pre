@@ -20,6 +20,11 @@ class Quiz < ApplicationRecord
     tasks.update_all(used: true)
   end
 
+  def archive
+    return if archived
+    update_attribute(:archived, true)
+  end
+
   private
 
     def create_tasks_associations

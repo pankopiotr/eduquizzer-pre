@@ -30,6 +30,7 @@
                     %td
                       - if editable?(quiz)
                         = link_to t(:btn_edit), edit_quiz_path(quiz), class: 'btn btn-xs btn-primary stop-propagation'
+                        = link_to t(:btn_archive), archive_quiz_path(quiz), method: :post, class: 'btn btn-xs btn-danger', data: { confirm: t(:are_you_sure) }
                       - elsif quiz.archived?
                         .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:archived)
                       - elsif quiz.used?
@@ -78,7 +79,7 @@
                                         %img{src: "#{task.asset}", class: 'img-responsive', alt: 'No image'}
                                         .row.row-p-t
                                         - if editable?(task)
-                                          = link_to t(:btn_edit), edit_task_path(task), class: 'btn btn-xs btn-primary pull-right'
+                                          = link_to t(:btn_edit), edit_task_path(task), method: :post, class: 'btn btn-xs btn-primary pull-right'
                                         - elsif task.archived?
                                           .btn.btn-xs.btn-danger.pull-right.disabled= t(:archived)
                                         - elsif task.used?

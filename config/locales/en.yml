@@ -48,6 +48,7 @@ en:
   archived: "Archived"
   user_name: "User alias"
   quiz_password: "Quiz password"
+  are_you_sure: "Are you sure?"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -81,6 +82,7 @@ en:
   correct_quiz_password: "You're in! Good luck!"
   cannot_edit_task: "This task cannot be edited"
   cannot_edit_quiz: "This quiz cannot be edited"
+  quiz_archived: "Quiz has been archived"
 
   # Page titles
   create_task: "Create new task"
@@ -160,6 +162,7 @@ en:
   btn_save_changes: "Save changes"
   btn_view_quizzes: "View quizzes"
   btn_view_tasks: "View tasks"
+  btn_archive: "Archive"
 
   # Tooltips
   tt_task_new_name: "Must be unique."
