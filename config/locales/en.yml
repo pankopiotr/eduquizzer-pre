@@ -81,8 +81,11 @@ en:
   wrong_quiz_password: "Wrong quiz password"
   correct_quiz_password: "You're in! Good luck!"
   cannot_edit_task: "This task cannot be edited"
+  cannot_find_task: "Task was not found"
+  cannot_archive_task: "This task cannot be archived"
   cannot_edit_quiz: "This quiz cannot be edited"
   quiz_archived: "Quiz has been archived"
+  task_archived: "Task has been archived"
 
   # Page titles
   create_task: "Create new task"

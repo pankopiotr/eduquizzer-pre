@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :find_editable_task, only: %i[edit update]
+  before_action :find_task, only: %i[edit update archive]
+  before_action :task_editable?, only: %i[edit update]
+  before_action :task_archivable?, only: :archive
 
   def new
     @task = Task.new
@@ -32,6 +34,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def archive
+    @task.archive
+    redirect_to tasks_path, flash: { success: t(:task_archived) }
+  end
+
   private
 
     def task_params
@@ -42,9 +49,19 @@ class TasksController < ApplicationController
                                    correct_solutions: [], wrong_solutions: [])
     end
 
-    def find_editable_task
-      @task = Task.find_by(id: params[:id])
+    def find_task
+      return if (@task = Task.find_by(id: params[:id]))
+      redirect_to tasks_path, flash: { danger: t(:cannot_find_task) }
+    end
+
+    def task_editable?
       return if editable?(@task)
       redirect_to tasks_path, flash: { danger: t(:cannot_edit_task) }
     end
+
+    def task_archivable?
+      return unless @task.archived
+      redirect_to tasks_path, flash: { danger: t(:cannot_archive_task) }
+    end
+
 end

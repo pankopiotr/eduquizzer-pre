@@ -6,6 +6,7 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
+    @tasks = Task.where(archived: false)
   end
 
   def create
@@ -23,6 +24,7 @@ class QuizzesController < ApplicationController
   end
 
   def edit
+    @tasks = Task.where(archived: false)
   end
 
   def update

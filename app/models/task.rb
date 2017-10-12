@@ -15,6 +15,13 @@ class Task < ApplicationRecord
     self.author = user
   end
 
+  def archive
+    return if archived
+    update_attribute(:archived, true)
+    return unless quizzes
+    quizzes.update_all(archived: true)
+  end
+
   private
 
     def all_solutions
