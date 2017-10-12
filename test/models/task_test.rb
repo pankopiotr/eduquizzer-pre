@@ -115,11 +115,7 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test 'should archive related quizzes on task archivization' do
-    @task.save
     @task.archive
-    @quiz.save
-    assert @task.archived
-    @quiz.reload
-    assert @quiz.archived
+    assert @quiz.reload.archived
   end
 end
