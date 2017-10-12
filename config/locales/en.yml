@@ -84,6 +84,8 @@ en:
   cannot_find_task: "Task was not found"
   cannot_archive_task: "This task cannot be archived"
   cannot_edit_quiz: "This quiz cannot be edited"
+  cannot_find_quiz: "Quiz was not found"
+  cannot_archive_quiz: "This quiz cannot be archived"
   quiz_archived: "Quiz has been archived"
   task_archived: "Task has been archived"
 

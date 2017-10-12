@@ -2,7 +2,9 @@
 
 class QuizzesController < ApplicationController
   before_action :instantiate_task_list
-  before_action :find_editable_quiz, only: %i[edit update archive]
+  before_action :find_quiz, only: %i[edit update archive]
+  before_action :quiz_editable?, only: %i[edit update]
+  before_action :quiz_archivable?, only: :archive
 
   def new
     @quiz = Quiz.new
@@ -51,11 +53,18 @@ class QuizzesController < ApplicationController
       @tasks = Task.all
     end
 
-    def find_editable_quiz
-      unless (@quiz = Quiz.find_by(id: params[:id]))
-        redirect_to quizzes_path, flash: { danger: t(:cannot_edit_quiz) }
-      end
+    def find_quiz
+      return unless (@quiz = Quiz.find_by(id: params[:id]))
+      redirect_to quizzes_path, flash: { danger: t(:cannot_find_quiz) }
+    end
+
+    def quiz_editable?
       return if editable?(@quiz)
       redirect_to quizzes_path, flash: { danger: t(:cannot_edit_quiz) }
+    end
+
+    def quiz_archivable?
+      return unless @quiz.archived
+      redirect_to quizzes_path, flash: { danger: t(:cannot_archive_quiz) }
     end
 end
