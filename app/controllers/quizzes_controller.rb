@@ -54,7 +54,7 @@ class QuizzesController < ApplicationController
     end
 
     def find_quiz
-      return unless (@quiz = Quiz.find_by(id: params[:id]))
+      return if (@quiz = Quiz.find_by(id: params[:id]))
       redirect_to quizzes_path, flash: { danger: t(:cannot_find_quiz) }
     end
 
