@@ -6,6 +6,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:john)
     sign_in_as@user
+    @task = tasks(:taskApples)
   end
 
   test 'should get new' do
@@ -25,5 +26,21 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
                                      no_random_solutions: 4,
                                      min_no_random_correct_solutions: 1 } }
     assert Task.find_by(name: 'Apples')
+  end
+
+  test 'should prevent used task edit' do
+    get edit_task_path(@task)
+    assert_response :success
+    @task.update_attribute(:used, true)
+    get edit_task_path(@task)
+    assert_response :redirect
+  end
+
+  test 'should prevent archived task edit' do
+    get edit_task_path(@task)
+    assert_response :success
+    @task.archive
+    get edit_task_path(@task)
+    assert_response :redirect
   end
 end
