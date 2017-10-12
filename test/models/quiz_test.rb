@@ -58,4 +58,10 @@ class QuizTest < ActiveSupport::TestCase
     @quiz.save
     assert_equal 1, @quiz.tasks.count
   end
+
+  test 'should mark associated tasks as used' do
+    @quiz.mark_as_used
+    assert @tasks.first.reload.used
+    assert @tasks.second.reload.used
+  end
 end
