@@ -5,12 +5,14 @@ require 'test_helper'
 class TaskTest < ActiveSupport::TestCase
   def setup
     @user = users(:john)
+    @quiz = quizzes(:quizFix)
     @task = Task.new(name: 'Apples', task_type: 'Close-ended', category: 'test',
-                     description: 'Are apples blue?',
+                     description: 'Are apples blue?', archived: false,
                      correct_solutions: %w[no nope false],
                      wrong_solutions: %w[yes definitely true], score: 1,
                      mathjax: false, random: true, no_random_solutions: 4,
                      min_no_random_correct_solutions: 1, author: @user)
+    @quiz.tasks.push(@task)
   end
 
   test 'should validate task' do
@@ -97,7 +99,7 @@ class TaskTest < ActiveSupport::TestCase
 
   test 'should clean random options if task is not randomized' do
     @task.random = false
-    @task.save
+    assert @task.save
     assert_nil Task.find_by(name: 'Apples').no_random_solutions
     assert_nil Task.find_by(name: 'Apples').min_no_random_correct_solutions
   end
@@ -110,5 +112,14 @@ class TaskTest < ActiveSupport::TestCase
     @task.save
     assert_equal 3, @task.correct_solutions.count
     assert_equal 3, @task.wrong_solutions.count
+  end
+
+  test 'should archive related quizzes on task archivization' do
+    @task.save
+    @task.archive
+    @quiz.save
+    assert @task.archived
+    @quiz.reload
+    assert @quiz.archived
   end
 end

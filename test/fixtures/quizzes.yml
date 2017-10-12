@@ -1,0 +1,8 @@
+quizFix:
+  name: QuizFix
+  password: 0123456789xxxxxxxx
+  time_limit: 5
+  random: false
+  used: false
+  archived: false
+  author: john
