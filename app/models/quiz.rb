@@ -37,6 +37,7 @@ class Quiz < ApplicationRecord
     end
 
     def remove_archived_tasks
+      return unless task_list
       task_list.delete_if { |id| Task.find_by(id: id).archived? }
     end
 end

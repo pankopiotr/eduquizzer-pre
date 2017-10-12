@@ -52,4 +52,10 @@ class QuizTest < ActiveSupport::TestCase
     @quiz.save
     refute @dup_quiz_password.valid?
   end
+
+  test 'should drop archived tasks' do
+    @tasks.first.archive
+    @quiz.save
+    assert_equal 1, @quiz.tasks.count
+  end
 end
