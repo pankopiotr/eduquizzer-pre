@@ -98,7 +98,10 @@
             .btn-group
               = f.submit t(:btn_save_changes), class: 'btn btn-lg btn-primary btn-toolbar'
             .btn-group
+              = link_to t(:btn_archive), archive_task_path(@quiz), method: :post, class: 'btn btn-lg btn-danger btn-toolbar', data: { confirm: t(:are_you_sure) }
+            .btn-group
               = link_to t(:btn_cancel), quizzes_path, class: 'btn btn-lg btn-primary btn-toolbar'
           .btn-group-vertical.visible-xs
             = f.submit t(:btn_save_changes), class: 'btn btn-lg btn-primary'
+            = link_to t(:btn_archive), archive_task_path(@quiz), method: :post, class: 'btn btn-lg btn-danger', data: { confirm: t(:are_you_sure) }
             = link_to t(:btn_cancel), quizzes_path, class: 'btn btn-lg btn-primary'
