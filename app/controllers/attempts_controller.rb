@@ -2,7 +2,7 @@
 
 class AttemptsController < ApplicationController
   skip_before_action :admin_user?
-  before_action :find_attempt, :find_piece
+  before_action :find_attempt, :find_piece, only: %i[new create]
 
   def new
   end
@@ -14,7 +14,7 @@ class AttemptsController < ApplicationController
     if params[:back_button]
       @attempt.previous_step
     elsif @attempt.last_step?
-      @attempt.save
+      @attempt.save_score
       session.delete(:current_step)
       return redirect_to interface_path, flash: { success: 'Finished test' }
     else
