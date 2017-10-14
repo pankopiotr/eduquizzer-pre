@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924102529) do
+ActiveRecord::Schema.define(version: 20171014172253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170924102529) do
     t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "piece_id"
     t.index ["quiz_id"], name: "index_attempts_on_quiz_id", using: :btree
     t.index ["user_id"], name: "index_attempts_on_user_id", using: :btree
   end
@@ -29,6 +30,17 @@ ActiveRecord::Schema.define(version: 20170924102529) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pieces", force: :cascade do |t|
+    t.integer  "attempt_id"
+    t.integer  "task_id"
+    t.text     "randomized_solutions", default: [],              array: true
+    t.text     "chosen_solutions",     default: [],              array: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["attempt_id"], name: "index_pieces_on_attempt_id", using: :btree
+    t.index ["task_id"], name: "index_pieces_on_task_id", using: :btree
   end
 
   create_table "quizzes", force: :cascade do |t|

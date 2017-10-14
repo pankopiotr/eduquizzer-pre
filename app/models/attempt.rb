@@ -3,6 +3,7 @@
 class Attempt < ApplicationRecord
   belongs_to :user
   belongs_to :quiz
+  has_many :pieces
   attr_accessor :current_step
 
   def current_step

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attempt_id: 1
+  task_id: 1
+
+two:
+  attempt_id: 1
+  task_id: 1
