@@ -2,14 +2,15 @@
 
 class AttemptsController < ApplicationController
   skip_before_action :admin_user?
-  before_action :find_attempt
+  before_action :find_attempt, :find_piece
 
   def new
-    @attempt.current_step = session[:current_step]
   end
 
   def create
     @attempt.current_step = session[:current_step]
+    find_piece
+    @piece.update(piece_params) if params[:piece] && params[:piece][:chosen_solutions]
     if params[:back_button]
       @attempt.previous_step
     elsif @attempt.last_step?
@@ -20,6 +21,7 @@ class AttemptsController < ApplicationController
       @attempt.next_step
     end
     session[:current_step] = @attempt.current_step
+    find_piece
     render 'new'
   end
 
@@ -30,7 +32,7 @@ class AttemptsController < ApplicationController
   def password_check
     if (quiz = Quiz.find_by(password: params[:attempt][:password]))
       quiz.mark_as_used
-      @attempt = Attempt.create(user: current_user, quiz: quiz, score: -9999)
+      create_pieces(Attempt.create(user: current_user, quiz: quiz, score: -9999))
       redirect_to new_attempt_path, flash: { success: t(:correct_quiz_password) }
     else
       redirect_to interface_path, flash: { danger: t(:wrong_quiz_password) }
@@ -41,5 +43,20 @@ class AttemptsController < ApplicationController
 
     def find_attempt
       @attempt = current_user.attempts.last
+    end
+
+    def create_pieces(attempt)
+      attempt.quiz.tasks.each do |task|
+        Piece.create(attempt: attempt, task: task,
+                     randomized_solutions: task.randomize_solutions)
+      end
+    end
+
+    def piece_params
+      params.require(:piece).permit(chosen_solutions: [])
+    end
+
+    def find_piece
+      @piece = @attempt.pieces[@attempt.current_step]
     end
 end

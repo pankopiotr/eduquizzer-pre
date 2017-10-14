@@ -1,20 +1,19 @@
 = provide(:title, t(:test))
 .row.center
-  = form_for :attempt, url: attempts_path do |f|
+  = form_for :piece, url: attempts_path do |f|
     .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
       .text-center
         = render 'shared/flash'
         .jumbotron
           %h2= "#{t(:task_no)} #{@attempt.current_step + 1}"
 
-          %image{src: "#{current_task.asset}", class: 'img-responsive'}
+          %image{src: "#{@piece.task.asset}", class: 'img-responsive'}
 
-          %p= current_task.description
+          %p= @piece.task.description
           .row
-            - current_task.randomize_solutions.each do |solution|
+            - @piece.randomized_solutions.each do |solution|
               .form-check
-                - # Point to right parameter
-                = f.check_box 'score', {class: 'form-check-input'}, solution
+                = f.check_box 'chosen_solutions', {class: 'form-check-input', multiple: true}, solution, nil
                 = f.label solution, class: 'form-check-label'
 
           .btn-group.btn-group-justified
