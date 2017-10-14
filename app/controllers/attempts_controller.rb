@@ -30,7 +30,8 @@ class AttemptsController < ApplicationController
   end
 
   def password_check
-    if (quiz = Quiz.find_by(password: params[:attempt][:password]))
+    quiz = Quiz.find_by(password: params[:attempt][:password])
+    if quiz && !quiz.archived?
       quiz.mark_as_used
       create_pieces(Attempt.create(user: current_user, quiz: quiz, score: -9999))
       redirect_to new_attempt_path, flash: { success: t(:correct_quiz_password) }
