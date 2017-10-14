@@ -41,6 +41,7 @@ end
 group :development do
   # Debugging
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'meta_request'
   gem 'web-console'
 
