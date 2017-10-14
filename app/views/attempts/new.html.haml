@@ -1,2 +1,27 @@
-= @attempt
-= @quiz
+= provide(:title, t(:test))
+.row.center
+  = form_for :attempt, url: attempts_path do |f|
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
+      .text-center
+        = render 'shared/flash'
+        .jumbotron
+          %h2= "#{t(:task_no)} #{@attempt.current_step + 1}"
+
+          %image{src: "#{current_task.asset}", class: 'img-responsive'}
+
+          %p= current_task.description
+          .row
+            - current_task.randomize_solutions.each do |solution|
+              .form-check
+                - # Point to right parameter
+                = f.check_box 'score', {class: 'form-check-input'}, solution
+                = f.label solution, class: 'form-check-label'
+
+          .btn-group.btn-group-justified
+            .btn-group
+              = f.submit t(:btn_previous), name: 'back_button', class: 'btn btn-lg btn-primary btn-toolbar' unless @attempt.first_step?
+            .btn-group
+              - if @attempt.last_step?
+                = f.submit t(:btn_finish), class: 'btn btn-lg btn-primary btn-toolbar'
+              - else
+                = f.submit t(:btn_next), class: 'btn btn-lg btn-primary btn-toolbar'

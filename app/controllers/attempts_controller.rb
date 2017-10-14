@@ -5,9 +5,22 @@ class AttemptsController < ApplicationController
   before_action :find_attempt
 
   def new
+    @attempt.current_step = session[:current_step]
   end
 
   def create
+    @attempt.current_step = session[:current_step]
+    if params[:back_button]
+      @attempt.previous_step
+    elsif @attempt.last_step?
+      @attempt.save
+      session.delete(:current_step)
+      return redirect_to interface_path, flash: { success: 'Finished test' }
+    else
+      @attempt.next_step
+    end
+    session[:current_step] = @attempt.current_step
+    render 'new'
   end
 
   def index

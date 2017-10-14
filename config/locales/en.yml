@@ -49,6 +49,7 @@ en:
   user_name: "User alias"
   quiz_password: "Quiz password"
   are_you_sure: "Are you sure?"
+  task_no: "Task no"
 
   # Alerts, errors and notices
   already_signed_in: "You are already signed in. Sign out or delete cookies first"
@@ -104,6 +105,7 @@ en:
   score_list: "List of user scores"
   user_interface: "User interface"
   admin_interface: "Admin interface"
+  test: "Test"
 
   # Parameters
   par_first_name: "First name"
@@ -168,6 +170,9 @@ en:
   btn_view_quizzes: "View quizzes"
   btn_view_tasks: "View tasks"
   btn_archive: "Archive"
+  btn_next: "Next"
+  btn_previous: "Previous"
+  btn_finish: "Finish"
 
   # Tooltips
   tt_task_new_name: "Must be unique."

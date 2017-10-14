@@ -22,6 +22,16 @@ class Task < ApplicationRecord
     quizzes.update_all(archived: true)
   end
 
+  def randomize_solutions
+    return unless random?
+    no_correct_solutions = Random.new.rand(min_no_random_correct_solutions..
+                                               ([correct_solutions.count,
+                                                 no_random_solutions].min))
+    solutions = correct_solutions.sample(no_correct_solutions)
+    solutions.push(*wrong_solutions.sample(no_random_solutions -
+                                               no_correct_solutions))
+  end
+
   private
 
     def all_solutions
