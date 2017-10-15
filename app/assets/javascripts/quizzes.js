@@ -60,7 +60,6 @@ quiz = {
     const numberOfVisibleRows = 8;
     const savedTasks = $('#saved-tasks').data('saved-tasks');
     const tableHeight = $('tr').height() * numberOfVisibleRows;
-    console.log(savedTasks);
 
     // Hide filter menu
     $('.filter-box').css({'flex-grow': '0', 'padding-left': 0, 'padding-right': 0});
