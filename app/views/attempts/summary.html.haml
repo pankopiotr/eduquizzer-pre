@@ -1,0 +1,15 @@
+= provide(:title, t(:summary))
+.row.center
+  .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
+    .text-center
+      = render 'shared/flash'
+      .jumbotron
+        %h2= t(:summary)
+        %h3= @attempt.score
+        - @attempt.pieces.each do |piece|
+          %image{src: "#{piece.task.asset}", class: 'img-responsive'}
+          %p= piece.task.description
+          .row.row-p-b
+            - piece.randomized_solutions.each do |solution|
+              = validate_solution(solution, piece)
+        = link_to t(:btn_ok), interface_path, class: 'btn btn-lg btn-primary btn-toolbar'

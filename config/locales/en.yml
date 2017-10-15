@@ -106,6 +106,7 @@ en:
   user_interface: "User interface"
   admin_interface: "Admin interface"
   test: "Test"
+  summary: "Summary"
 
   # Parameters
   par_first_name: "First name"
@@ -173,6 +174,7 @@ en:
   btn_next: "Next"
   btn_previous: "Previous"
   btn_finish: "Finish"
+  btn_ok: "Ok"
 
   # Tooltips
   tt_task_new_name: "Must be unique."

@@ -2,7 +2,7 @@
 
 class AttemptsController < ApplicationController
   skip_before_action :admin_user?
-  before_action :find_attempt, :find_piece, only: %i[new create]
+  before_action :find_attempt, :find_piece, only: %i[new create summary]
 
   def new
   end
@@ -16,7 +16,7 @@ class AttemptsController < ApplicationController
     elsif @attempt.last_step?
       @attempt.save_score
       session.delete(:current_step)
-      return redirect_to interface_path, flash: { success: 'Finished test' }
+      return redirect_to summary_path, flash: { success: 'Finished test' }
     else
       @attempt.next_step
     end
@@ -38,6 +38,9 @@ class AttemptsController < ApplicationController
     else
       redirect_to interface_path, flash: { danger: t(:wrong_quiz_password) }
     end
+  end
+
+  def summary
   end
 
   private
