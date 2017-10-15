@@ -25,4 +25,9 @@ module AttemptsHelper
         label('none', solution, class: 'form-check-label')
     end
   end
+
+  def attempt_seconds_left
+    attempt = current_user.attempts.last
+    (attempt.created_at + attempt.quiz.time_limit.minutes).to_i
+  end
 end

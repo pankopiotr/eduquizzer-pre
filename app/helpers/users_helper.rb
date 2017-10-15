@@ -12,6 +12,7 @@ module UsersHelper
   end
 
   def in_attempt?
+    return false unless current_user.attempts.last
     current_user.attempts.last.score == -9999
   end
 end

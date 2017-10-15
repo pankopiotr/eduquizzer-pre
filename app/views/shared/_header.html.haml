@@ -1,6 +1,10 @@
 %header{class: 'navbar navbar-static-top navbar-inverse'}
   - if signed_in?
     .container
-      =link_to interface_path, class: 'btn', id: 'interface-link' do
+      = link_to interface_path, class: 'btn', id: 'interface-link' do
         %p{class: 'd-inline'}= 'Profile'
         %i{class: 'material-icons text-muted'} subject
+      - if in_attempt?
+        = link_to quiz_path, class: 'btn', id: 'timer' do
+          %p{class: 'd-inline'}
+          .hidden{id: 'timer_params', data: {attempt_sec_left: attempt_seconds_left}}

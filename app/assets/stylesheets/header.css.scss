@@ -1,8 +1,7 @@
-#interface-link {
+#interface-link, #timer {
   margin-right: 10px;
   padding: 8px;
   font-weight: bold;
-  float: right;
   font-size: 1.7em;
   color: white;
   letter-spacing: -1px;
@@ -10,4 +9,12 @@
   &:hover {
     background-color: #303030;
   }
+}
+
+#interface-link {
+  float: right;
+}
+
+#timer {
+  float: left;
 }
