@@ -10,4 +10,8 @@ module UsersHelper
       user.email.split('@')[0]
     end
   end
+
+  def in_attempt?
+    current_user.attempts.last.score == -9999
+  end
 end

@@ -3,8 +3,10 @@
 class AttemptsController < ApplicationController
   skip_before_action :admin_user?
   before_action :find_attempt, :find_piece, only: %i[new create summary]
+  before_action :attempt_active?, only: %i[new create]
 
   def new
+    @attempt.current_step = session[:current_step]
   end
 
   def create
@@ -47,6 +49,10 @@ class AttemptsController < ApplicationController
 
     def find_attempt
       @attempt = current_user.attempts.last
+    end
+
+    def attempt_active?
+      redirect_to interface_path unless @attempt.score == -9999
     end
 
     def create_pieces(attempt)

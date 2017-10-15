@@ -175,6 +175,7 @@ en:
   btn_previous: "Previous"
   btn_finish: "Finish"
   btn_ok: "Ok"
+  btn_continue_quiz: "Continue quiz"
 
   # Tooltips
   tt_task_new_name: "Must be unique."

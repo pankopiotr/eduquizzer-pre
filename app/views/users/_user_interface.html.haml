@@ -13,9 +13,14 @@
             %td= attempt.score
             %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
 .btn-group-vertical
-  = form_for :attempt, url: password_check_path, html: {id: 'password_check_form'} do |f|
-    = f.label t(:quiz_password)
-    = f.text_field :password, class: 'form-control'
+  - if in_attempt?
+    = link_to t(:btn_continue_quiz), quiz_path, class: 'btn btn-lg btn-primary'
+  - else
+    = form_for :attempt, url: password_check_path, html: {id: 'password_check_form'} do |f|
+      = f.label t(:quiz_password)
+      = f.text_field :password, class: 'form-control'
+
+
   = submit_tag t(:btn_enter_quiz), class: 'btn btn-lg btn-primary', form: 'password_check_form'
   - if optional_registration?
     = link_to t(:btn_update_additional_info), register_optional_path, class: 'btn btn-lg btn-primary'
