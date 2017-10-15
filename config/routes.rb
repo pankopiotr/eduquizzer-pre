@@ -19,11 +19,13 @@ Rails.application.routes.draw do
     post '/quizzes/(:id)/archive', to: 'quizzes#archive', as: 'archive_quiz'
     post '/tasks/(:id)/archive', to: 'tasks#archive', as: 'archive_task'
     get '/summary', to: 'attempts#summary'
+    get '/quiz', to: 'attempts#new'
+    post '/quiz', to: 'attempts#create'
     resources :tasks, only: %i[new create index edit update]
     resources :quizzes, only: %i[new create index edit update]
-    resources :account_activations, param: :activation_token, only: %i[edit]
+    resources :account_activations, param: :activation_token, only: :edit
     resources :password_resets, param: :reset_token, only: %i[new create
                                                               edit update archive]
-    resources :attempts, only: %i[new create index]
+    resources :attempts, only: :index
   end
 end
