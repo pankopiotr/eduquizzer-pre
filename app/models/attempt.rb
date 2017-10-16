@@ -35,9 +35,9 @@ class Attempt < ApplicationRecord
     def count_score
       score = 0
       pieces.each do |piece|
-        score += 1 if (piece.task.correct_solutions &
-                       piece.randomized_solutions).sort ==
-                      piece.chosen_solutions.sort
+        score += piece.task.score if (piece.task.correct_solutions &
+                                       piece.randomized_solutions).sort ==
+                                      piece.chosen_solutions.sort
       end
       score
     end
