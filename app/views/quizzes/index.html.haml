@@ -62,7 +62,7 @@
                                 %td= task.created_at.to_date
                               %tr
                                 %td{class: 'clear-p-b-m', colspan: '6'}
-                                  .collapse.table-responsive{id: "accordion_task#{quiz.id}#{task.id}"}
+                                  .collapse.table-responsive.hide-horizontal-of{id: "accordion_task#{quiz.id}#{task.id}"}
                                     .col-lg-8.col-md-8.col-sm-8.col-xs-12.task-details
                                       .row
                                         %p= "#{t(:par_description)}:   #{task.description}"
