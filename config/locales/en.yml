@@ -107,6 +107,7 @@ en:
   admin_interface: "Admin interface"
   test: "Test"
   summary: "Summary"
+  edit_quiz: "Edit quiz"
 
   # Parameters
   par_first_name: "First name"
