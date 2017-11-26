@@ -10,7 +10,7 @@
         - @attempts.each do |attempt|
           %tr
             %td= attempt.quiz.name
-            %td= attempt.score
+            %td= "#{attempt.score}/#{attempt.max_score}"
             %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
 .btn-group-vertical
   - if in_attempt?

@@ -23,6 +23,6 @@
                       %td= attempt.user_id
                       %td= user_alias(attempt.user)
                     %td= attempt.quiz.name
-                    %td= attempt.score
+                    %td= "#{attempt.score}/#{attempt.max_score}"
                     %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
         = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary btn-toolbar hidden-xs'

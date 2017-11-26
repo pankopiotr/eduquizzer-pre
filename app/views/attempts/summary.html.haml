@@ -5,7 +5,7 @@
       = render 'shared/flash'
       .jumbotron
         %h2= t(:summary)
-        %h3= @attempt.score
+        %h3= "#{@attempt.score}/#{@attempt.max_score}"
         - @attempt.pieces.each do |piece|
           %image{src: "#{piece.task.asset}", class: 'img-responsive'}
           %p= piece.task.description
