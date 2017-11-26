@@ -6,7 +6,7 @@
         = render 'shared/flash'
         .jumbotron
           %h2= "#{t(:task_no)} #{@attempt.current_step + 1}"
-          %image{src: "#{@piece.task.asset}", class: 'img-responsive'}
+          %image{src: "#{@attempt.pieces[@attempt.current_step].task.asset}", class: 'img-responsive'}
           %p= @piece.task.description
           .row
             - @piece.randomized_solutions.each do |solution|

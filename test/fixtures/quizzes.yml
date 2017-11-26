@@ -1,4 +1,5 @@
 quizFix:
+  id: 1
   name: QuizFix
   password: 0123456789xxxxxxxx
   time_limit: 5

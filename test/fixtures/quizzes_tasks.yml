@@ -1,0 +1,7 @@
+quizFix_taskApples:
+  quiz_id: 1
+  task_id: 1
+
+quizFix_taskOranges:
+  quiz_id: 1
+  task_id: 2

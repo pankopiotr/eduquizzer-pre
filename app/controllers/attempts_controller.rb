@@ -12,7 +12,8 @@ class AttemptsController < ApplicationController
   def create
     @attempt.current_step = session[:current_step]
     find_piece
-    @piece.update(piece_params) if params[:piece] && params[:piece][:chosen_solutions]
+    @piece.update(piece_params) if params[:piece] &&
+                                   params[:piece][:chosen_solutions]
     if params[:back_button]
       @attempt.previous_step
     elsif @attempt.last_step?
@@ -35,7 +36,8 @@ class AttemptsController < ApplicationController
     quiz = Quiz.find_by(password: params[:attempt][:password])
     if quiz && !quiz.archived?
       quiz.mark_as_used
-      create_pieces(Attempt.create(user: current_user, quiz: quiz, score: -9999))
+      create_pieces(Attempt.create(user: current_user, quiz: quiz,
+                                   score: -9999))
       redirect_to quiz_path, flash: { success: t(:correct_quiz_password) }
     else
       redirect_to interface_path, flash: { danger: t(:wrong_quiz_password) }
