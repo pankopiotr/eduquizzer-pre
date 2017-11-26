@@ -10,7 +10,7 @@ module QuizzesHelper
   end
 
   def show_filter
-    params[:controller] == 'quizzes' && (params[:action] == 'new' ||
-        params[:action] == 'create')
+    params[:controller] == 'quizzes' &&
+      %w[new create edit update].include?(params[:action])
   end
 end
