@@ -2,12 +2,12 @@
 
 class AttemptsController < ApplicationController
   skip_before_action :admin_user?
-  before_action :find_attempt, :find_piece, only: %i[new create summary]
+  before_action :find_attempt, only: %i[new create summary]
   before_action :attempt_active?, only: %i[new create]
   before_action :check_expiration, only: %i[new create password_check]
 
   def new
-    @attempt.current_step = session[:current_step]
+    find_piece
   end
 
   def create
@@ -78,6 +78,6 @@ class AttemptsController < ApplicationController
     end
 
     def find_piece
-      @piece = @attempt.pieces[@attempt.current_step]
+      @piece = @attempt.pieces.sort[@attempt.current_step]
     end
 end
