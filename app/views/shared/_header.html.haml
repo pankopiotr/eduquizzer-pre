@@ -5,6 +5,6 @@
         %p{class: 'd-inline'}= 'Profile'
         %i{class: 'material-icons text-muted'} subject
       - if in_attempt?
-        = link_to quiz_path, class: 'btn', id: 'timer' do
+        = link_to attempt_path, class: 'btn', id: 'timer' do
           %p{class: 'd-inline'}
           .hidden{id: 'timer_params', data: {attempt_sec_left: attempt_seconds_left}}

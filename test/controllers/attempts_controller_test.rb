@@ -9,7 +9,7 @@ class AttemptsControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
     post password_check_path, params: { attempt: { password:
                                                        '0123456789xxxxxxxx' } }
-    assert_redirected_to quiz_path
+    assert_redirected_to attempt_path
   end
 
   test 'should mark quiz as used' do
@@ -29,9 +29,9 @@ class AttemptsControllerTest < ActionDispatch::IntegrationTest
   test 'should render new task' do
     post password_check_path, params: { attempt: { password:
                                                        '0123456789xxxxxxxx' } }
-    assert_redirected_to quiz_path
+    assert_redirected_to attempt_path
     follow_redirect!
-    post quiz_path, params: { piece: { chosen_solutions: [] } }
+    post attempt_path, params: { piece: { chosen_solutions: [] } }
     assert_response :success
   end
 
@@ -39,7 +39,7 @@ class AttemptsControllerTest < ActionDispatch::IntegrationTest
     post password_check_path, params: { attempt: { password:
                                                        '0123456789xxxxxxxx' } }
     Quiz.find_by(name: 'QuizFix').tasks.each do
-      post quiz_path, params: { piece: { chosen_solutions: [] } }
+      post attempt_path, params: { piece: { chosen_solutions: [] } }
     end
     assert_redirected_to summary_path
   end
@@ -48,9 +48,9 @@ class AttemptsControllerTest < ActionDispatch::IntegrationTest
     post password_check_path, params: { attempt: { password:
                                                        '0123456789xxxxxxxx' } }
     Attempt.last.pieces.each do |piece|
-      post quiz_path, params: { piece: { chosen_solutions:
-                                             piece.randomized_solutions &
-                                             piece.task.correct_solutions } }
+      post attempt_path, params: { piece: { chosen_solutions:
+                                                piece.randomized_solutions &
+                                                    piece.task.correct_solutions } }
     end
     assert_equal Attempt.last.pieces.count, Attempt.last.score
   end
