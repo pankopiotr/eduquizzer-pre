@@ -10,7 +10,7 @@
           = link_to t(:btn_back), interface_path, class: 'btn btn-lg btn-primary'
         .row
           .table-responsive
-            %table{class: 'table table-bordered table-hover table-limit table-inverse'}
+            %table{class: 'table table-hover table-limit'}
               %thead
                 %tr
                   %th{class: 'text-center'}= t(:par_id)
@@ -62,7 +62,7 @@
                                 %td= task.created_at.to_date
                               %tr
                                 %td{class: 'clear-p-b-m', colspan: '6'}
-                                  .collapse{id: "accordion_task#{quiz.id}#{task.id}"}
+                                  .collapse.table-responsive{id: "accordion_task#{quiz.id}#{task.id}"}
                                     .col-lg-8.col-md-8.col-sm-8.col-xs-12.task-details
                                       .row
                                         %p= "#{t(:par_description)}:   #{task.description}"

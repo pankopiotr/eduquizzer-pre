@@ -40,7 +40,7 @@
                         = link_to t(:btn_archive), archive_task_path(task), method: :post, class: 'btn btn-xs btn-danger', data: { confirm: t(:are_you_sure) }
                   %tr
                     %td{class: 'clear-p-b-m', colspan: '7'}
-                      .collapse{id: "accordion#{task.id}"}
+                      .collapse.table-responsive{id: "accordion#{task.id}"}
                         .col-lg-8.col-md-8.col-sm-8.col-xs-12.task-details
                           .row
                             %p= "#{t(:par_description)}:   #{task.description}"
