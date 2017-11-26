@@ -34,7 +34,7 @@ class AttemptsController < ApplicationController
 
   def password_check
     quiz = Quiz.find_by(password: params[:attempt][:password])
-    if quiz && !quiz.archived?
+    if quiz&.active && !quiz.archived?
       quiz.mark_as_used
       create_pieces(Attempt.create(user: current_user, quiz: quiz,
                                    score: -9999))

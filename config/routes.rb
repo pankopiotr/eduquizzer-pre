@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get '/summary', to: 'attempts#summary'
     get '/quiz', to: 'attempts#new'
     post '/quiz', to: 'attempts#create'
+    post '/quizzes/(:id)/toggle_active', to: 'quizzes#toggle_active', as: 'activate_quiz'
     resources :tasks, only: %i[new create index edit update]
     resources :quizzes, only: %i[new create index edit update]
     resources :account_activations, param: :activation_token, only: :edit

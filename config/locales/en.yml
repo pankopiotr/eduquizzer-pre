@@ -136,6 +136,7 @@ en:
   par_created_at: "Created at"
   par_quiz_tasks: "Quiz tasks"
   par_user_id: "User ID"
+  par_active: "Active"
 
   # Buttons
   btn_back: "Back"

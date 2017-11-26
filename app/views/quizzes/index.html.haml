@@ -18,6 +18,7 @@
                   %th{class: 'text-center'}= t(:par_name)
                   %th{class: 'text-center'}= t(:par_password)
                   %th{class: 'text-center'}= t(:par_created_at)
+                  %th{class: 'text-center'}= t(:par_active)
                   %th
               %tbody
                 - @quizzes.each do |quiz|
@@ -27,6 +28,9 @@
                     %td= quiz.name
                     %td= quiz.password
                     %td= quiz.created_at.to_date
+                    %td
+                      = form_for(quiz, method: :post, url: activate_quiz_path(quiz.id)) do |f|
+                        = f.check_box 'active', {class: 'stop-propagation', onchange: 'this.form.submit()'}, checked_value: true, unchecked_value: false
                     %td
                       - if editable?(quiz)
                         = link_to t(:btn_edit), edit_quiz_path(quiz), class: 'btn btn-xs btn-primary stop-propagation'

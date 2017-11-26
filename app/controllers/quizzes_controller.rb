@@ -2,7 +2,7 @@
 
 class QuizzesController < ApplicationController
   before_action :instantiate_task_list
-  before_action :find_quiz, only: %i[edit update archive]
+  before_action :find_quiz, only: %i[edit update archive toggle_active]
   before_action :quiz_editable?, only: %i[edit update]
   before_action :quiz_archivable?, only: :archive
 
@@ -40,6 +40,10 @@ class QuizzesController < ApplicationController
   def archive
     @quiz.archive
     redirect_to quizzes_path, flash: { success: t(:quiz_archived) }
+  end
+
+  def toggle_active
+    @quiz.toggle_active
   end
 
   private

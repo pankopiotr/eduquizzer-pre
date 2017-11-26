@@ -26,6 +26,10 @@ class Quiz < ApplicationRecord
     update_attribute(:archived, true)
   end
 
+  def toggle_active
+    toggle!(:active)
+  end
+
   private
 
     def create_tasks_associations
