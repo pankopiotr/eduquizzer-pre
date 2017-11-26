@@ -4,6 +4,7 @@ class AttemptsController < ApplicationController
   skip_before_action :admin_user?
   before_action :find_attempt, :find_piece, only: %i[new create summary]
   before_action :attempt_active?, only: %i[new create]
+  before_action :check_expiration, only: %i[new create password_check]
 
   def new
     @attempt.current_step = session[:current_step]
@@ -55,6 +56,14 @@ class AttemptsController < ApplicationController
 
     def attempt_active?
       redirect_to interface_path unless @attempt.score == -9999
+    end
+
+    def check_expiration
+      return unless @attempt && (@attempt.created_at +
+                    @attempt.quiz.time_limit.minutes < Time.now)
+      @attempt.save_score
+      session.delete(:current_step)
+      redirect_to summary_path, flash: { success: 'Finished test' }
     end
 
     def create_pieces(attempt)
