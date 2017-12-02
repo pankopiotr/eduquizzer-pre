@@ -32,6 +32,6 @@ module AttemptsHelper
   end
 
   def use_mathjax?
-    %w[tasks attempts].include?(params[:controller])
+    %w[tasks attempts quizzes].include?(params[:controller])
   end
 end
