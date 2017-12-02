@@ -3,7 +3,20 @@
 one:
   attempt_id: 1
   task_id: 1
+  randomized_solutions:
+    - nope
+    - no
+    - yes
+  chosen_solutions:
+    - yes
 
 two:
   attempt_id: 1
-  task_id: 1
+  task_id: 2
+  randomized_solutions:
+    - nope
+    - no
+    - yes
+  chosen_solutions:
+    - no
+    - nope
