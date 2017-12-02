@@ -24,7 +24,8 @@ class AttemptTest < ActiveSupport::TestCase
 
   test 'should create pieces for attempt' do
     @new_attempt = Attempt.new(user: users(:jane), quiz: quizzes(:quizFix),
-                               score: -9999).create_pieces
+                               score: -9999)
+    @new_attempt.create_pieces
     assert_equal 2, @new_attempt.pieces.count
   end
 end
