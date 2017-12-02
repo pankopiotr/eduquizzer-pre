@@ -30,4 +30,8 @@ module AttemptsHelper
     attempt = current_user.attempts.last
     (attempt.created_at + attempt.quiz.time_limit.minutes).to_i
   end
+
+  def use_mathjax?
+    %w[tasks attempts].include?(params[:controller])
+  end
 end
