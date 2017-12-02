@@ -60,7 +60,7 @@ class AttemptsController < ApplicationController
     end
 
     def check_expiration
-      return unless @attempt&.expired?
+      return unless @attempt&.expired? && @attempt.active?
       @attempt.save_score
       session.delete(:current_step)
       redirect_to summary_path, flash: { success: 'Finished test' }
