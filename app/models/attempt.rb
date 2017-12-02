@@ -19,6 +19,21 @@ class Attempt < ApplicationRecord
     update_attribute(:max_score, max_score)
   end
 
+  def expired?
+    created_at + quiz.time_limit.minutes < Time.now
+  end
+
+  def create_pieces
+    quiz.tasks.each do |task|
+      Piece.create(attempt: self, task: task,
+                   randomized_solutions: task.randomize_solutions)
+    end
+  end
+
+  def active?
+    score == -9999
+  end
+
   def current_step
     @current_step || 0
   end

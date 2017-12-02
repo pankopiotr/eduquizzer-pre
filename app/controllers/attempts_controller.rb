@@ -37,8 +37,7 @@ class AttemptsController < ApplicationController
     quiz = Quiz.find_by(password: params[:attempt][:password])
     if quiz&.active && !quiz.archived?
       quiz.mark_as_used
-      create_pieces(Attempt.create(user: current_user, quiz: quiz,
-                                   score: -9999))
+      Attempt.create(user: current_user, quiz: quiz, score: -9999).create_pieces
       redirect_to attempt_path, flash: { success: t(:correct_quiz_password) }
     else
       redirect_to interface_path, flash: { danger: t(:wrong_quiz_password) }
@@ -55,22 +54,14 @@ class AttemptsController < ApplicationController
     end
 
     def attempt_active?
-      redirect_to interface_path unless @attempt.score == -9999
+      redirect_to interface_path unless @attempt.active?
     end
 
     def check_expiration
-      return unless @attempt && (@attempt.created_at +
-                    @attempt.quiz.time_limit.minutes < Time.now)
+      return unless @attempt&.expired?
       @attempt.save_score
       session.delete(:current_step)
       redirect_to summary_path, flash: { success: 'Finished test' }
-    end
-
-    def create_pieces(attempt)
-      attempt.quiz.tasks.each do |task|
-        Piece.create(attempt: attempt, task: task,
-                     randomized_solutions: task.randomize_solutions)
-      end
     end
 
     def piece_params
