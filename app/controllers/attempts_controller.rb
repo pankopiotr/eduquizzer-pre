@@ -2,7 +2,7 @@
 
 class AttemptsController < ApplicationController
   skip_before_action :admin_user?
-  before_action :find_attempt, only: %i[new create summary]
+  before_action :find_attempt, only: %i[new create summary password_check]
   before_action :attempt_active?, only: %i[new create]
   before_action :check_expiration, only: %i[new create password_check]
 
@@ -34,6 +34,7 @@ class AttemptsController < ApplicationController
   end
 
   def password_check
+    redirect_to interface_path and return if @attempt&.active?
     quiz = Quiz.find_by(password: params[:attempt][:password])
     if quiz&.active && !quiz.archived?
       quiz.mark_as_used
@@ -48,13 +49,13 @@ class AttemptsController < ApplicationController
   end
 
   private
-
+  
     def find_attempt
       @attempt = current_user.attempts.last
     end
 
     def attempt_active?
-      redirect_to interface_path unless @attempt.active?
+      redirect_to interface_path unless @attempt&.active?
     end
 
     def check_expiration
