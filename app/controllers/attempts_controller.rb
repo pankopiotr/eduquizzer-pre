@@ -46,10 +46,11 @@ class AttemptsController < ApplicationController
   end
 
   def summary
+    redirect_to attempt_path if @attempt&.active?
   end
 
   private
-  
+
     def find_attempt
       @attempt = current_user.attempts.last
     end
