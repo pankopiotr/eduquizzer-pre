@@ -113,9 +113,4 @@ class TaskTest < ActiveSupport::TestCase
     assert_equal 3, @task.correct_solutions.count
     assert_equal 3, @task.wrong_solutions.count
   end
-
-  test 'should archive related quizzes on task archivization' do
-    @task.archive
-    assert @quiz.reload.archived
-  end
 end
