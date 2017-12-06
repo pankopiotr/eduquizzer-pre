@@ -22,7 +22,7 @@ class QuizzesController < ApplicationController
   end
 
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.all.where(archived: false)
   end
 
   def edit
