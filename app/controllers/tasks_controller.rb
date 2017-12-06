@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all
+    @tasks = Task.all.where(archived: false)
   end
 
   def edit

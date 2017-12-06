@@ -39,6 +39,7 @@
                         .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:archived)
                       - elsif quiz.used?
                         .btn.btn-xs.btn-danger.disabled.stop-propagation= t(:used)
+                        = link_to t(:btn_archive), archive_quiz_path(quiz), method: :post, class: 'btn btn-xs btn-danger', data: { confirm: t(:are_you_sure) }
                   %tr
                     %td{class: 'clear-p-b-m', colspan: '7'}
                       .collapse.table-responsive.table-limit{id: "accordion_quiz#{quiz.id}"}
@@ -85,6 +86,8 @@
                                         - if editable?(task)
                                           = link_to t(:btn_archive), archive_task_path(task), method: :post, class: 'btn btn-xs btn-danger pull-right', data: { confirm: t(:are_you_sure) }
                                           = link_to t(:btn_edit), edit_task_path(task), class: 'btn btn-xs btn-primary pull-right'
+                                        - elsif task.archived?
+                                          .btn.btn-xs.btn-danger.pull-right.disabled= t(:archived)
                                         - elsif task.used?
                                           = link_to t(:btn_archive), archive_task_path(task), method: :post, class: 'btn btn-xs btn-danger pull-right', data: { confirm: t(:are_you_sure) }
                                           .btn.btn-xs.btn-danger.pull-right.disabled= t(:used)
