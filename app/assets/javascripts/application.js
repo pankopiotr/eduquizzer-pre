@@ -21,4 +21,15 @@ $(document).on('turbolinks:load', function() {
   $('.stop-propagation').on('click', function(event) {
     event.stopPropagation();
   });
+  loadMathJax();
+  $(document).on('page:load', loadMathJax())
 });
+
+function loadMathJax(){
+  window.MathJax = null;
+  $.getScript("http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function() {
+    MathJax.Hub.Config({
+      showMathMenu: false
+    });
+  });
+}
