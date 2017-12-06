@@ -18,8 +18,6 @@ class Task < ApplicationRecord
   def archive
     return if archived
     update_attribute(:archived, true)
-    return unless quizzes
-    quizzes.update_all(archived: true)
   end
 
   def randomize_solutions
