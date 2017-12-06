@@ -30,7 +30,11 @@ class AttemptsController < ApplicationController
   end
 
   def index
-    @attempts = Attempt.all
+    @attempts = if current_user.admin?
+                  Attempt.order(created_at: :desc).limit(35)
+                else
+                  current_user.attempts.order(created_at: :desc).limit(5)
+                end
   end
 
   def password_check
