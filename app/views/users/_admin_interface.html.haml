@@ -15,7 +15,7 @@
             %td= user_alias(attempt.user)
             %td= attempt.quiz.name
             %td= "#{attempt.score}/#{attempt.max_score}"
-            %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
+            %td= attempt.created_at
 .btn-group-vertical
   = link_to t(:btn_view_quizzes), quizzes_path, class: 'btn btn-lg btn-primary'
   = link_to t(:btn_view_tasks), tasks_path, class: 'btn btn-lg btn-primary'

@@ -11,7 +11,7 @@
           %tr
             %td= attempt.quiz.name
             %td= "#{attempt.score}/#{attempt.max_score}"
-            %td= attempt.created_at.strftime('%a, %d %b %Y %H:%M:%S')
+            %td= attempt.created_at
 .btn-group-vertical
   - if in_attempt?
     = link_to t(:btn_continue_quiz), attempt_path, class: 'btn btn-lg btn-primary'
