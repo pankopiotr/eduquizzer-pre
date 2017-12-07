@@ -11,7 +11,7 @@ class Attempt < ApplicationRecord
     max_score = 0
     pieces.each do |piece|
       score += piece.task.score if (piece.task.correct_solutions &
-                                    piece.randomized_solutions).sort ==
+          ApplicationController.helpers.get_solutions(piece)).sort ==
                                     piece.chosen_solutions.sort
       max_score += piece.task.score
     end

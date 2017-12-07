@@ -30,11 +30,11 @@ class Task < ApplicationRecord
                                                no_correct_solutions))
   end
 
-  private
+  def all_solutions
+    (correct_solutions + wrong_solutions).shuffle
+  end
 
-    def all_solutions
-      correct_solutions + wrong_solutions
-    end
+  private
 
     def random_solutions_check
       return unless no_random_solutions.present?

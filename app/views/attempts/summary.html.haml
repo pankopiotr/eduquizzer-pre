@@ -10,6 +10,6 @@
           %image{src: "#{piece.task.asset}", class: 'img-responsive'}
           %p= piece.task.description
           .row.row-p-b
-            - piece.randomized_solutions.each do |solution|
+            - get_solutions(piece).each do |solution|
               = validate_solution(solution, piece)
         = link_to t(:btn_ok), interface_path, class: 'btn btn-lg btn-primary btn-toolbar'

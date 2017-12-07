@@ -9,7 +9,7 @@
           %image{src: "#{@attempt.pieces[@attempt.current_step].task.asset}", class: 'img-responsive'}
           %p= @piece.task.description
           .row
-            - @piece.randomized_solutions.each do |solution|
+            - get_solutions(@piece).each do |solution|
               .form-check
                 = f.check_box 'chosen_solutions', {class: 'form-check-input', multiple: true}, solution, nil
                 = f.label solution, class: 'form-check-label'

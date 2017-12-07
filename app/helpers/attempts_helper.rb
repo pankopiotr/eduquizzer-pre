@@ -34,4 +34,8 @@ module AttemptsHelper
   def use_mathjax?
     %w[tasks attempts quizzes].include?(params[:controller])
   end
+
+  def get_solutions(piece)
+    piece.randomized_solutions || piece.task.all_solutions
+  end
 end
