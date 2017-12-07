@@ -34,10 +34,6 @@
             %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_description)} info_outline
             = f.text_area 'description', class: 'form-control'
 
-            = f.check_box 'mathjax'
-            = f.label t(:par_mathjax)
-            %i{class: 'material-icons text-muted', rel: 'tooltip', title: t(:tt_task_mathjax)} info_outline
-
           .row
             .correct_solutions.col-lg-6.col-md-6.col-sm-6.col-xs-12
               = f.label t(:par_correct_solutions)

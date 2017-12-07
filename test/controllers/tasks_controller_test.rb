@@ -22,7 +22,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
                                      description: 'Are apples blue?',
                                      correct_solutions: %w[no nope false],
                                      wrong_solutions: %w[yes definitely],
-                                     score: 1, mathjax: false, random: true,
+                                     score: 1, random: true,
                                      no_random_solutions: 4,
                                      min_no_random_correct_solutions: 1 } }
     assert Task.find_by(name: 'Apples')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126161110) do
+ActiveRecord::Schema.define(version: 20171207180248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 20171126161110) do
     t.text     "wrong_solutions",                 default: [],                 array: true
     t.integer  "score"
     t.boolean  "archived",                        default: false
-    t.boolean  "mathjax"
     t.boolean  "random"
     t.integer  "no_random_solutions"
     t.integer  "min_no_random_correct_solutions"

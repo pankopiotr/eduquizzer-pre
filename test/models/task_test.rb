@@ -10,7 +10,7 @@ class TaskTest < ActiveSupport::TestCase
                      description: 'Are apples blue?', archived: false,
                      correct_solutions: %w[no nope false],
                      wrong_solutions: %w[yes definitely true], score: 1,
-                     mathjax: false, random: true, no_random_solutions: 4,
+                     random: true, no_random_solutions: 4,
                      min_no_random_correct_solutions: 1, author: @user)
     @quiz.tasks.push(@task)
   end
